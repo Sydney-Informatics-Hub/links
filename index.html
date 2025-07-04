@@ -12,22 +12,37 @@
     <main class="container">
         <header>
             <h1>🔗 Sydney Informatics Hub Quick Links</h1>
-            <p>Click any link below or copy the shortcut.</p>
         </header>
 
         <div class="stats">
-            <h3 id="link-count">0 Links Available</h3>
             <div class="domain-info">
-                <span class="domain-badge" id="current-domain">sih.tools</span>
-                <span class="domain-badge" id="github-domain">sydney-informatics-hub.github.io/links</span>
+                <span class="domain-badge" id="current-domain"><p>sih.tools</p></span>
+                <span> <p id="link-count">0 Links Available</p> </span>
                 <span> <a href="https://github.com/Sydney-Informatics-Hub/links/edit/main/links.js" target="_blank">✏️ Edit Links</a></span>
             </div>
+        </div>
+
+        <!-- Search/Filter Section -->
+        <div class="search-section">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search links by name, description, or URL..." class="search-input">
+                <button id="clear-search" class="clear-btn" title="Clear search">✕</button>
+            </div>
+<!--            <div class="filter-tags" id="filter-tags"></div>-->
+            <div class="search-stats" id="search-stats"></div>
         </div>
 
         <div id="links-container" class="link-grid">
             <!-- Links will be populated here -->
         </div>
-
+        
+        <div id="no-results" class="no-results" style="display: none;">
+            <div class="no-results-content">
+                <h3>🔍 No links found</h3>
+                <p>Try adjusting your search terms or <button id="reset-search" class="reset-btn">clear the search</button>.</p>
+            </div>
+        </div>
+        
         <footer style="margin-top: 3rem; text-align: center; color: var(--muted-color);">
             <p><a href="https://github.com/Sydney-Informatics-Hub/links/edit/main/links.js" target="_blank">✏️ Edit Links</a></p>
         </footer>

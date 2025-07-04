@@ -77,6 +77,15 @@ function getDomainFromUrl(url) {
     }
 }
 
+function getSimpleUrl(url) {
+    try {
+        const parsed = new URL(url);
+        return parsed.hostname + parsed.pathname;
+    } catch {
+        return url;
+    }
+}
+
 function getFaviconUrl(url) {
     try {
         const domain = new URL(url).origin;
@@ -95,33 +104,36 @@ function createLinkCard(shortcut, redirectEntry, searchTerm = '') {
 
     const displayShortcut = highlightMatch(shortcut, searchTerm);
     const displayDescription = highlightMatch(description, searchTerm);
+    const displayUrl = highlightMatch(getSimpleUrl(destinationUrl), searchTerm);
     const displayDomain = highlightMatch(destinationDomain, searchTerm);
 
     return `
-        <div class="link-card" title="${destinationUrl}" 
+        <article title="${destinationUrl}" 
              data-shortcut="${shortcut}" 
              data-description="${description.toLowerCase()}" 
              data-url="${destinationUrl.toLowerCase()}" 
              data-domain="${destinationDomain.toLowerCase()}">
              
-            <div class="link-header">
+            <header>
                 ${faviconUrl ? `<img src="${faviconUrl}" alt="" class="favicon" onerror="this.style.display='none'">` : ''}
-                <div class="link-shortcut">/${displayShortcut}</div>
-            </div>
+                /${displayShortcut}
+                <br>
+                <small>→ ${displayUrl}</small>
+            </header>
             
-            <div class="link-destination">→ ${displayDomain}</div>
+            
             
             ${description ? `<div class="link-description">${displayDescription}</div>` : ''}
             
-            <div class="link-actions" role="group">
+            <footer>
                 <button onclick="copyToClipboard('${shortlinkUrl}')" title="Copy short link">
                     📋 Copy
                 </button>
                 <button class="secondary" onclick="window.open('${shortlinkUrl}', '_blank')" title="Visit ${destinationUrl}">
                     🔗 Visit
                 </button>
-            </div>
-        </div>
+            </footer>
+        </article>
     `;
 }
 

@@ -108,6 +108,15 @@ search {
     margin: 0.5rem 0;
 }
 
+article header small {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
 /* Highlight search matches */
 mark {
     background: var(--primary);

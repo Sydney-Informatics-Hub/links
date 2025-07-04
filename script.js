@@ -86,21 +86,33 @@ function getFaviconUrl(url) {
     }
 }
 
-function createLinkCard(shortcut, redirectEntry) {
+function createLinkCard(shortcut, redirectEntry, searchTerm = '') {
     const destinationUrl = getRedirectUrl(redirectEntry);
-    const description = getRedirectDescription(redirectEntry);
+    const description = getRedirectDescription(redirectEntry) || '';
     const shortlinkUrl = getShortlinkUrl(shortcut);
     const destinationDomain = getDomainFromUrl(destinationUrl);
     const faviconUrl = getFaviconUrl(destinationUrl);
-    
+
+    const displayShortcut = highlightMatch(shortcut, searchTerm);
+    const displayDescription = highlightMatch(description, searchTerm);
+    const displayDomain = highlightMatch(destinationDomain, searchTerm);
+
     return `
-        <div class="link-card" title="${destinationUrl}" data-shortcut="${shortcut}" data-description="${description.toLowerCase()}" data-url="${destinationUrl.toLowerCase()}" data-domain="${destinationDomain.toLowerCase()}">
+        <div class="link-card" title="${destinationUrl}" 
+             data-shortcut="${shortcut}" 
+             data-description="${description.toLowerCase()}" 
+             data-url="${destinationUrl.toLowerCase()}" 
+             data-domain="${destinationDomain.toLowerCase()}">
+             
             <div class="link-header">
                 ${faviconUrl ? `<img src="${faviconUrl}" alt="" class="favicon" onerror="this.style.display='none'">` : ''}
-                <div class="link-shortcut">/${shortcut}</div>
+                <div class="link-shortcut">/${displayShortcut}</div>
             </div>
-            <div class="link-destination">→ ${destinationDomain}</div>
-            ${description ? `<div class="link-description">${description}</div>` : ''}
+            
+            <div class="link-destination">→ ${displayDomain}</div>
+            
+            ${description ? `<div class="link-description">${displayDescription}</div>` : ''}
+            
             <div class="link-actions" role="group">
                 <button onclick="copyToClipboard('${shortlinkUrl}')" title="Copy short link">
                     📋 Copy
@@ -118,38 +130,6 @@ function highlightMatch(text, searchTerm) {
     
     const regex = new RegExp(`(${searchTerm})`, 'gi');
     return text.replace(regex, '<mark>$1</mark>');
-}
-
-function createLinkCardWithHighlight(shortcut, redirectEntry, searchTerm) {
-    const destinationUrl = getRedirectUrl(redirectEntry);
-    const description = getRedirectDescription(redirectEntry);
-    const shortlinkUrl = getShortlinkUrl(shortcut);
-    const destinationDomain = getDomainFromUrl(destinationUrl);
-    const faviconUrl = getFaviconUrl(destinationUrl);
-    
-    // Highlight matches in displayed text
-    const highlightedShortcut = highlightMatch(shortcut, searchTerm);
-    const highlightedDescription = highlightMatch(description, searchTerm);
-    const highlightedDomain = highlightMatch(destinationDomain, searchTerm);
-    
-    return `
-        <div class="link-card" title="${destinationUrl}" data-shortcut="${shortcut}" data-description="${description.toLowerCase()}" data-url="${destinationUrl.toLowerCase()}" data-domain="${destinationDomain.toLowerCase()}">
-            <div class="link-header">
-                ${faviconUrl ? `<img src="${faviconUrl}" alt="" class="favicon" onerror="this.style.display='none'">` : ''}
-                <div class="link-shortcut">/${highlightedShortcut}</div>
-            </div>
-            <div class="link-destination">→ ${highlightedDomain}</div>
-            ${description ? `<div class="link-description">${highlightedDescription}</div>` : ''}
-            <div class="link-actions">
-                <button onclick="copyToClipboard('${shortlinkUrl}')" title="Copy short link">
-                    📋 Copy
-                </button>
-                <button class="secondary" onclick="window.open('${shortlinkUrl}', '_blank')" title="Visit ${destinationUrl}">
-                    🔗 Visit
-                </button>
-            </div>
-        </div>
-    `;
 }
 
 function filterLinks(searchTerm) {
@@ -191,7 +171,7 @@ function filterLinks(searchTerm) {
         searchResultsCount.textContent = 'No results found';
     } else {
         const linkCards = filteredLinks.map(([shortcut, redirectEntry]) => 
-            createLinkCardWithHighlight(shortcut, redirectEntry, searchTerm)
+            createLinkCard(shortcut, redirectEntry, searchTerm)
         ).join('');
         
         container.innerHTML = linkCards;

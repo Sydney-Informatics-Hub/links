@@ -63,6 +63,15 @@ function getDomainFromUrl(url) {
     }
 }
 
+function getFaviconUrl(url) {
+    try {
+        const domain = new URL(url).origin;
+        return `https://www.google.com/s2/favicons?domain=${domain}&sz=32`;
+    } catch {
+        return null;
+    }
+}
+
 function renderLinks() {
     const container = document.getElementById('links-container');
     const linkCount = document.getElementById('link-count');
@@ -78,20 +87,30 @@ function renderLinks() {
     // Generate link cards
     const linkCards = Object.entries(REDIRECTS)
         .sort(([a], [b]) => a.localeCompare(b))
-        .map(([shortcut, destination]) => {
+        .map(([shortcut, redirectEntry]) => {
+            const destinationUrl = getRedirectUrl(redirectEntry);
+            const description = getRedirectDescription(redirectEntry);
             const shortlinkUrl = getShortlinkUrl(shortcut);
-            const destinationDomain = getDomainFromUrl(destination);
+            const destinationDomain = getDomainFromUrl(destinationUrl);
+            const faviconUrl = getFaviconUrl(destinationUrl);
             
+            // In the renderLinks function, replace the link-actions div with:
             return `
-                <div class="link-card">
-                    <div class="link-shortcut">/${shortcut}</div>
+                <div class="link-card" title="${destinationUrl}">
+                    <div class="link-header">
+                        ${faviconUrl ? `<img src="${faviconUrl}" alt="" class="favicon" onerror="this.style.display='none'">` : ''}
+                        <div class="link-shortcut">/${shortcut}</div>
+                    </div>
                     <div class="link-destination">→ ${destinationDomain}</div>
-                    <button class="copy-btn" onclick="copyToClipboard('${shortlinkUrl}')" data-tooltip="Copy short link">
-                        📋 Copy Link
-                    </button>
-                    <a href="${shortlinkUrl}" target="_blank" role="button" class="outline" style="margin-left: 0.5rem;">
-                        🔗 Visit
-                    </a>
+                    ${description ? `<div class="link-description">${description}</div>` : ''}
+                    <div class="link-actions">
+                        <button class="copy-btn" onclick="copyToClipboard('${shortlinkUrl}')" title="Copy link ${shortlinkUrl}">
+                            📋 Copy
+                        </button>
+                        <button class="visit-btn" onclick="window.open('${shortlinkUrl}', '_blank')" title="Visit ${destinationUrl}">
+                            🔗 Visit
+                        </button>
+                    </div>
                 </div>
             `;
         }).join('');

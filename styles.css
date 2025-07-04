@@ -1,6 +1,6 @@
 .link-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1rem;
     margin-top: 2rem;
 }
@@ -9,7 +9,8 @@
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     padding: 1rem;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
 }
 
 .link-card:hover {
@@ -17,23 +18,82 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.link-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.favicon {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
 .link-shortcut {
     font-family: var(--font-family-mono);
     font-weight: bold;
     color: var(--primary);
-    margin-bottom: 0.5rem;
+    font-size: 1.1em;
 }
 
 .link-destination {
     font-size: 0.9em;
     color: var(--muted-color);
     word-break: break-all;
+    margin-bottom: 0.5rem;
+}
+
+.link-description {
+    font-size: 0.9em;
+    color: var(--color);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.link-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: stretch;
+    margin-top: auto;
+}
+
+.copy-btn, .visit-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8em;
+    flex: 1;
+    min-width: 0;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
 .copy-btn {
-    margin-top: 0.5rem;
-    padding: 0.25rem 0.5rem;
-    font-size: 0.8em;
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.copy-btn:hover {
+    background: var(--primary-hover);
+}
+
+.visit-btn {
+    background: transparent;
+    color: var(--primary);
+}
+
+.visit-btn:hover {
+    background: var(--primary);
+    color: white;
 }
 
 .stats {
@@ -61,13 +121,6 @@
     font-family: var(--font-family-mono);
 }
 
-/* Footer styles */
-.footer {
-    margin-top: 3rem;
-    text-align: center;
-    color: var(--muted-color);
-}
-
 /* Toast notification for copy feedback */
 .toast {
     position: fixed;
@@ -77,11 +130,25 @@
     color: white;
     padding: 0.75rem 1rem;
     border-radius: var(--border-radius);
-    transform: translateX(300px);
+    transform: translateX(280px);
     transition: transform 0.3s ease;
     z-index: 1000;
 }
 
 .toast.show {
     transform: translateX(0);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .link-actions {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .copy-btn, .visit-btn {
+        width: 50%;
+        text-align: center;
+    }
 }

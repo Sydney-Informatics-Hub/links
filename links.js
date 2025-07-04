@@ -1,18 +1,60 @@
 // Redirect links
 const REDIRECTS = {
-  'jira': 'https://ctdshub.atlassian.net/jira/software/c/projects/PIPE/boards/27',
-  'sharepoint': 'https://unisyd.sharepoint.com/:f:/r/teams/SydneyInformaticsHub2/Shared%20Documents/1%20SIH%20Central%20Document%20Repository',
-  'chat': 'http://10.122.246.109:3000',
-  'label': 'http://10.167.67.78:8080',
-  'gpu-eoi': 'https://forms.office.com/r/kmn4P1WNjq',
-  'collections-eoi': 'https://forms.cloud.microsoft/r/hAs6drJ3xQ',
-  'github-internal': 'https://github.sydney.edu.au/informatics',
-  'github-external': 'https://github.com/Sydney-Informatics-Hub',
-  'stats': 'https://sydney-informatics-hub.github.io/stats-resources/',
-  'hf': 'https://huggingface.co/SIH',
-  'bio': 'https://github.com/Sydney-Informatics-Hub/Bioinformatics'
-  // Add more redirects here
+  'jira': {
+    url: 'https://ctdshub.atlassian.net/jira/software/c/projects/PIPE/boards/27',
+    description: 'SIH JIRA Project management and issue tracking'
+  },
+  'sharepoint': {
+    url: 'https://unisyd.sharepoint.com/:f:/r/teams/SydneyInformaticsHub2/Shared%20Documents/1%20SIH%20Central%20Document%20Repository',
+    description: 'SIH Central document repository'
+  },
+  'chat': {
+    url: 'http://10.122.246.109:3000',
+    description: 'Internal OpenWebUI chat server  (needs VPN to access)'
+  },
+  'label': {
+    url: 'http://10.167.67.78:8080',
+    description: 'Labelstudio deployment (needs VPN to access)'
+  },
+  'gpu-eoi': {
+    url: 'https://forms.office.com/r/kmn4P1WNjq',
+    description: 'GPU access expression of interest form'
+  },
+  'collections-eoi': {
+    url: 'https://forms.cloud.microsoft/r/hAs6drJ3xQ',
+    description: 'Curated Collections platform expression of interest form'
+  },
+  'github-internal': {
+    url: 'https://github.sydney.edu.au/informatics',
+    description: 'Internal SIH GitHub organization'
+  },
+  'github-external': {
+    url: 'https://github.com/Sydney-Informatics-Hub',
+    description: 'Public SIH GitHub organization'
+  },
+  'stats': {
+    url: 'https://sydney-informatics-hub.github.io/stats-resources/',
+    description: 'SIH Statistics and data analysis resources'
+  },
+  'hf': {
+    url: 'https://huggingface.co/SIH',
+    description: 'SIH Hugging Face organization page'
+  },
+  'bio': {
+    url: 'https://github.com/Sydney-Informatics-Hub/Bioinformatics',
+    description: 'SIH Bioinformatics resources and tools'
+  }
 };
+
+// Helper function to get URL from redirect entry
+function getRedirectUrl(entry) {
+  return typeof entry === 'string' ? entry : entry.url;
+}
+
+// Helper function to get description from redirect entry
+function getRedirectDescription(entry) {
+  return typeof entry === 'string' ? '' : (entry.description || '');
+}
 
 // Catch-all URL for unmatched paths
 const CATCH_ALL_URL = 'https://informatics.sydney.edu.au';

@@ -13,8 +13,8 @@
             const hostname = window.location.hostname;
             const pathname = window.location.pathname;
             
-            // If accessing via custom domain (my.org)
-            if (hostname === 'my.org') {
+            // If accessing via custom domain
+            if (hostname === 'sih.tools') {
                 // Path is /shortlink, so remove leading slash
                 return pathname.substring(1).toLowerCase();
             }
@@ -35,7 +35,8 @@
         }
         
         const shortlink = getShortlink();
-        const redirectUrl = REDIRECTS[shortlink] || CATCH_ALL_URL;
+        const redirectEntry = REDIRECTS[shortlink];
+        const redirectUrl = redirectEntry ? getRedirectUrl(redirectEntry) : CATCH_ALL_URL;
         
         // Redirect immediately
         window.location.replace(redirectUrl);

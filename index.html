@@ -22,9 +22,29 @@
                 <span> <a href="https://github.com/Sydney-Informatics-Hub/links/edit/main/links.js" target="_blank">✏️ Edit Links</a></span>
             </div>
         </div>
+        
+        <!-- Search Section -->
+        <div class="search-section">
+            <input 
+                type="text" 
+                id="search-input" 
+                placeholder="Search links... (shortcut, description, or URL)"
+                autocomplete="off"
+            >
+            <div class="search-stats">
+                <span id="search-results-count"></span>
+                <button id="clear-search" class="clear-btn" style="display: none;">Clear</button>
+            </div>
+        </div>
+
 
         <div id="links-container" class="link-grid">
             <!-- Links will be populated here -->
+        </div>
+        
+        <div id="no-results" class="no-results" style="display: none;">
+            <p>🔍 No links found matching your search.</p>
+            <p>Try searching for shortcuts, descriptions, or destination URLs.</p>
         </div>
 
         <footer style="margin-top: 3rem; text-align: center; color: var(--muted-color);">

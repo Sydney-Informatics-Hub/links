@@ -5,7 +5,7 @@ const REDIRECTS = {
   'chat': 'http://10.122.246.109:3000',
   'label': 'http://10.167.67.78:8080',
   'gpu-eoi': 'https://forms.office.com/r/kmn4P1WNjq',
-  'collections-eoi': 'https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=fuOzgnGBXUixCzja5-0UqMp6qYRP51hOvKLsVjGcPQlUNVhaQ0VVQ1ZTMkNKTEY5UTNVN0w2SzZGMi4u',
+  'collections-eoi': 'https://forms.cloud.microsoft/r/hAs6drJ3xQ',
   'github-internal': 'https://github.sydney.edu.au/informatics',
   'github-external': 'https://github.com/Sydney-Informatics-Hub',
   'stats': 'https://sydney-informatics-hub.github.io/stats-resources/',

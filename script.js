@@ -32,22 +32,18 @@ function getShortlinkUrl(shortcut) {
 }
 
 function showToast(message) {
-    // Remove existing toast if any
     const existingToast = document.querySelector('.toast');
     if (existingToast) {
         existingToast.remove();
     }
     
-    // Create new toast
     const toast = document.createElement('div');
     toast.className = 'toast';
     toast.textContent = message;
     document.body.appendChild(toast);
     
-    // Show toast
     setTimeout(() => toast.classList.add('show'), 100);
     
-    // Hide and remove toast
     setTimeout(() => {
         toast.classList.remove('show');
         setTimeout(() => toast.remove(), 300);
@@ -58,7 +54,6 @@ function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
         showToast('Link copied to clipboard!');
     }).catch(() => {
-        // Fallback for browsers that don't support clipboard API
         const textArea = document.createElement('textarea');
         textArea.value = text;
         document.body.appendChild(textArea);
@@ -247,11 +242,14 @@ function updateStats() {
     const linkCount = document.getElementById('link-count');
     const currentDomain = document.getElementById('current-domain');
     
+    // Initialize links data
+    initializeLinks();
+    
     // Update domain info
     currentDomain.textContent = getCurrentDomain();
     
     // Update count
-    const count = Object.keys(REDIRECTS).length;
+    const count = allLinks.length;
     linkCount.textContent = `${count} Link${count !== 1 ? 's' : ''} Available`;
 }
 
@@ -269,4 +267,7 @@ function renderLinks() {
 }
 
 // Initialize page when DOM is loaded
-document.addEventListener('DOMContentLoaded', renderLinks);
+document.addEventListener('DOMContentLoaded', () => {
+    renderLinks();
+    initializeSearch();
+});

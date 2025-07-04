@@ -13,4 +13,4 @@ Url shortener for Sydney Informatics Hub links. E.g.:
 
 ## Add a link
 
-Add a shortlink by adding something to the links.js file above!
+Add a shortlink by adding something to the [links.js](links.js) file above!

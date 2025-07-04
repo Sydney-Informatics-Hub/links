@@ -60,65 +60,12 @@
     margin-top: auto;
 }
 
-.copy-btn, .visit-btn {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8em;
-    flex: 1;
-    min-width: 0;
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-}
-
-.copy-btn {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
-}
-
-.copy-btn:hover {
-    background: var(--primary-hover);
-}
-
-.visit-btn {
-    background: transparent;
-    color: var(--primary);
-}
-
-.visit-btn:hover {
-    background: var(--primary);
-    color: white;
-}
-
 .stats {
     text-align: center;
     margin-bottom: 2rem;
     padding: 1rem;
     background: var(--card-background-color);
     border-radius: var(--border-radius);
-}
-
-.domain-info {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 1rem;
-}
-
-.domain-badge {
-    background: var(--primary);
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 2rem;
-    font-size: 0.8em;
-    font-family: var(--font-family-mono);
 }
 
 /* Toast notification for copy feedback */
@@ -139,52 +86,17 @@
     transform: translateX(0);
 }
 
+search {
+    width: 70%;
+    }
 
 .search-section {
     margin: 2rem 0;
     text-align: center;
-}
-
-#search-input {
-    width: 100%;
-    max-width: 500px;
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    border: 2px solid var(--border-color);
-    border-radius: var(--border-radius);
-    margin-bottom: 0.5rem;
-    transition: border-color 0.2s ease;
-}
-
-#search-input:focus {
-    border-color: var(--primary);
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.1);
-}
-
-.search-stats {
-    display: flex;
-    justify-content: center;
+    display: flex; 
     align-items: center;
-    gap: 1rem;
-    font-size: 0.9em;
-    color: var(--muted-color);
 }
 
-.clear-btn {
-    padding: 0.25rem 0.75rem;
-    font-size: 0.8em;
-    background: var(--secondary);
-    color: white;
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.clear-btn:hover {
-    background: var(--secondary-hover);
-}
 
 .no-results {
     text-align: center;
@@ -212,13 +124,14 @@ mark {
         gap: 0.25rem;
     }
     
-    .copy-btn, .visit-btn {
-        width: 50%;
+    
+    .search-section {
+        margin: 2rem 0;
         text-align: center;
-    }
-    .search-stats {
         flex-direction: column;
-        gap: 0.5rem;
-    }
+        gap: 0.25rem;
+        display: flex; 
+        align-items: center;
+}
 
 }

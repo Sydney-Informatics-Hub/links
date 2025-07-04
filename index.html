@@ -5,37 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIH Links</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.red.min.css">
     <script src="links.js"></script>
 </head>
 <body>
     <main class="container">
         <header>
-            <h1>🔗 Sydney Informatics Hub Quick Links</h1>
-        </header>
-
-        <div class="stats">
-            
-            <div class="domain-info">
-                <span class="domain-badge" id="current-domain">sih.tools</span>
-                <span> <p id="link-count">0 Links Available</p> </span>
-                <span> <a href="https://github.com/Sydney-Informatics-Hub/links/edit/main/links.js" target="_blank">✏️ Edit Links</a></span>
-            </div>
-        </div>
-        
-        <!-- Search Section -->
-        <div class="search-section">
-            <input 
-                type="text" 
-                id="search-input" 
-                placeholder="Search links... (shortcut, description, or URL)"
-                autocomplete="off"
-            >
-            <div class="search-stats">
+            <hgroup>
+                <h2>SIH 🔗 Quick Links 
+                    &nbsp;
+                    <a  
+                    href="https://github.com/Sydney-Informatics-Hub/links/edit/main/links.js" 
+                    role="button" 
+                    class="outline"
+                    target="_blank"
+                    >
+                        ✏️ Add link
+                    </a>
+                </h2>
+            </hgroup>
+            <!-- Search Section -->
+                <input 
+                        type="search" 
+                        id="search-input" 
+                        placeholder="Search links... (shortcut, description, or URL)"
+                        autocomplete="off"
+                    >
                 <span id="search-results-count"></span>
-                <button id="clear-search" class="clear-btn" style="display: none;">Clear</button>
             </div>
-        </div>
+        </header>
+        
+
+            
+
 
 
         <div id="links-container" class="link-grid">

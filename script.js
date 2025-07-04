@@ -101,11 +101,11 @@ function createLinkCard(shortcut, redirectEntry) {
             </div>
             <div class="link-destination">→ ${destinationDomain}</div>
             ${description ? `<div class="link-description">${description}</div>` : ''}
-            <div class="link-actions">
-                <button class="copy-btn" onclick="copyToClipboard('${shortlinkUrl}')" title="Copy short link">
+            <div class="link-actions" role="group">
+                <button onclick="copyToClipboard('${shortlinkUrl}')" title="Copy short link">
                     📋 Copy
                 </button>
-                <button class="visit-btn" onclick="window.open('${shortlinkUrl}', '_blank')" title="Visit ${destinationUrl}">
+                <button class="secondary" onclick="window.open('${shortlinkUrl}', '_blank')" title="Visit ${destinationUrl}">
                     🔗 Visit
                 </button>
             </div>
@@ -141,10 +141,10 @@ function createLinkCardWithHighlight(shortcut, redirectEntry, searchTerm) {
             <div class="link-destination">→ ${highlightedDomain}</div>
             ${description ? `<div class="link-description">${highlightedDescription}</div>` : ''}
             <div class="link-actions">
-                <button class="copy-btn" onclick="copyToClipboard('${shortlinkUrl}')" title="Copy short link">
+                <button onclick="copyToClipboard('${shortlinkUrl}')" title="Copy short link">
                     📋 Copy
                 </button>
-                <button class="visit-btn" onclick="window.open('${shortlinkUrl}', '_blank')" title="Visit ${destinationUrl}">
+                <button class="secondary" onclick="window.open('${shortlinkUrl}', '_blank')" title="Visit ${destinationUrl}">
                     🔗 Visit
                 </button>
             </div>
@@ -156,7 +156,6 @@ function filterLinks(searchTerm) {
     const container = document.getElementById('links-container');
     const noResults = document.getElementById('no-results');
     const searchResultsCount = document.getElementById('search-results-count');
-    const clearButton = document.getElementById('clear-search');
     
     if (!searchTerm.trim()) {
         // Show all links
@@ -168,7 +167,6 @@ function filterLinks(searchTerm) {
         noResults.style.display = 'none';
         container.style.display = 'grid';
         searchResultsCount.textContent = '';
-        clearButton.style.display = 'none';
         return;
     }
     
@@ -203,26 +201,16 @@ function filterLinks(searchTerm) {
         const resultText = filteredLinks.length === 1 ? 'result' : 'results';
         searchResultsCount.textContent = `${filteredLinks.length} ${resultText} found`;
     }
-    
-    clearButton.style.display = 'inline-block';
+
 }
 
 function setupSearch() {
     const searchInput = document.getElementById('search-input');
-    const clearButton = document.getElementById('clear-search');
-    
+ 
     // Real-time search as user types
     searchInput.addEventListener('input', (e) => {
         currentSearchTerm = e.target.value;
         filterLinks(currentSearchTerm);
-    });
-    
-    // Clear search
-    clearButton.addEventListener('click', () => {
-        searchInput.value = '';
-        currentSearchTerm = '';
-        filterLinks('');
-        searchInput.focus();
     });
     
     // Handle Enter key
@@ -243,23 +231,9 @@ function setupSearch() {
     });
 }
 
-function updateStats() {
-    const linkCount = document.getElementById('link-count');
-    const currentDomain = document.getElementById('current-domain');
-    
-    // Update domain info
-    currentDomain.textContent = getCurrentDomain();
-    
-    // Update count
-    const count = Object.keys(REDIRECTS).length;
-    linkCount.textContent = `${count} Link${count !== 1 ? 's' : ''} Available`;
-}
-
 function renderLinks() {
     // Store all links for searching
     allLinks = Object.entries(REDIRECTS).sort(([a], [b]) => a.localeCompare(b));
-    
-    updateStats();
     
     // Initial render of all links
     filterLinks('');

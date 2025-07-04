@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script src="links.js"></script>
+</head>
+<body>
+    <p>Redirecting...</p>
+    <script>
+        // Get the path after the domain (e.g., "shortlink" from "yoursite.com/shortlink")
+        const path = window.location.pathname.substring(1).toLowerCase();
+        
+        // Find matching redirect or use catch-all
+        const redirectUrl = REDIRECTS[path] || CATCH_ALL_URL;
+        
+        // Redirect immediately
+        window.location.replace(redirectUrl);
+    </script>
+</body>
+</html>

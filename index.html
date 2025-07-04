@@ -3,20 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
+    <title>SIH Links</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="links.js"></script>
 </head>
 <body>
-    <p>Redirecting...</p>
-    <script>
-        // Get the path after the domain (e.g., "shortlink" from "yoursite.com/shortlink")
-        const path = window.location.pathname.substring(1).toLowerCase();
-        
-        // Find matching redirect or use catch-all
-        const redirectUrl = REDIRECTS[path] || CATCH_ALL_URL;
-        
-        // Redirect immediately
-        window.location.replace(redirectUrl);
-    </script>
+    <main class="container">
+        <header>
+            <h1>🔗 Sydney Informatics Hub Quick Links</h1>
+            <p>Click any link below or copy the shortcut.</p>
+        </header>
+
+        <div class="stats">
+            <h3 id="link-count">0 Links Available</h3>
+            <div class="domain-info">
+                <span class="domain-badge" id="current-domain">sih.tools</span>
+                <span class="domain-badge" id="github-domain">sydney-informatics-hub.github.io/links</span>
+            </div>
+        </div>
+
+        <div id="links-container" class="link-grid">
+            <!-- Links will be populated here -->
+        </div>
+
+        <footer style="margin-top: 3rem; text-align: center; color: var(--muted-color);">
+            <p><a href="https://github.com/Sydney-Informatics-Hub/links/edit/main/links.js" target="_blank">Edit Links</a></p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>

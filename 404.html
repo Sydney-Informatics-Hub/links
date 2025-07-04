@@ -9,11 +9,33 @@
 <body>
     <p>Redirecting...</p>
     <script>
-        // Get the path after the domain (e.g., "shortlink" from "yoursite.com/shortlink")
-        const path = window.location.pathname.substring(1).toLowerCase();
+        function getShortlink() {
+            const hostname = window.location.hostname;
+            const pathname = window.location.pathname;
+            
+            // If accessing via custom domain (my.org)
+            if (hostname === 'my.org') {
+                // Path is /shortlink, so remove leading slash
+                return pathname.substring(1).toLowerCase();
+            }
+            
+            // If accessing via GitHub Pages (my-org.github.io)
+            if (hostname.includes('github.io')) {
+                // Path is /links/shortlink, so remove /links/ prefix
+                const parts = pathname.split('/');
+                if (parts.length >= 3 && parts[1] === 'links') {
+                    return parts[2].toLowerCase();
+                }
+                // If somehow accessing /links/ directly, redirect to catch-all
+                return '';
+            }
+            
+            // Fallback
+            return pathname.substring(1).toLowerCase();
+        }
         
-        // Find matching redirect or use catch-all
-        const redirectUrl = REDIRECTS[path] || CATCH_ALL_URL;
+        const shortlink = getShortlink();
+        const redirectUrl = REDIRECTS[shortlink] || CATCH_ALL_URL;
         
         // Redirect immediately
         window.location.replace(redirectUrl);

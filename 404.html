@@ -8,38 +8,6 @@
 </head>
 <body>
     <p>Redirecting...</p>
-    <script>
-        function getShortlink() {
-            const hostname = window.location.hostname;
-            const pathname = window.location.pathname;
-            
-            // If accessing via custom domain
-            if (hostname === 'sih.tools') {
-                // Path is /shortlink, so remove leading slash
-                return pathname.substring(1).toLowerCase();
-            }
-            
-            // If accessing via GitHub Pages (my-org.github.io)
-            if (hostname.includes('github.io')) {
-                // Path is /links/shortlink, so remove /links/ prefix
-                const parts = pathname.split('/');
-                if (parts.length >= 3 && parts[1] === 'links') {
-                    return parts[2].toLowerCase();
-                }
-                // If somehow accessing /links/ directly, redirect to catch-all
-                return '';
-            }
-            
-            // Fallback
-            return pathname.substring(1).toLowerCase();
-        }
-        
-        const shortlink = getShortlink();
-        const redirectEntry = REDIRECTS[shortlink];
-        const redirectUrl = redirectEntry ? getRedirectUrl(redirectEntry) : CATCH_ALL_URL;
-        
-        // Redirect immediately
-        window.location.replace(redirectUrl);
-    </script>
+    <script src="redirect.js"></script>
 </body>
 </html>

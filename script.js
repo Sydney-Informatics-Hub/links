@@ -72,6 +72,16 @@ function getFaviconUrl(url) {
     }
 }
 
+// Helper function to get URL from redirect entry
+function getRedirectUrl(entry) {
+  return typeof entry === 'string' ? entry : entry.url;
+}
+
+// Helper function to get description from redirect entry
+function getRedirectDescription(entry) {
+  return typeof entry === 'string' ? '' : (entry.description || '');
+}
+
 function renderLinks() {
     const container = document.getElementById('links-container');
     const linkCount = document.getElementById('link-count');

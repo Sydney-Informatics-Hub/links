@@ -46,15 +46,6 @@ const REDIRECTS = {
   }
 };
 
-// Helper function to get URL from redirect entry
-function getRedirectUrl(entry) {
-  return typeof entry === 'string' ? entry : entry.url;
-}
-
-// Helper function to get description from redirect entry
-function getRedirectDescription(entry) {
-  return typeof entry === 'string' ? '' : (entry.description || '');
-}
 
 // Catch-all URL for unmatched paths
 const CATCH_ALL_URL = 'https://informatics.sydney.edu.au';

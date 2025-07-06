@@ -62,7 +62,7 @@ const REDIRECTS = {
   },  
   'aigis': {
     url: 'https://github.com/Sydney-Informatics-Hub/aigis/blob/main/README.md',
-    description: 'Geospatial data with Gen-AI - Sydney-Informatics-Hub/aigis · GitHub'
+    description: 'Geospatial data with Gen-AI - Sydney Informatics Hub'
   },
   'navigator': {
     url: 'https://app.cogniti.ai/agents/6539de2436d0b628561cad9c/chat?k=tz0LR06KDQMgOaq507-pvaSrCzGwfCHjo829dJLTM4s',

@@ -27,7 +27,7 @@ const REDIRECTS = {
   'hpc-chat': {
     url: 'https://app.cogniti.ai/agents/68099883ab29fb8c2af4154d/chat?k=e8f0C6vSYYuEh40obfkH3IRxlwGDrM6T1bCYXyknfm4', 
     description: 'University of Sydney High Performance Computing AI Chat Assistant'
-  }
+  },
   'collections-eoi': {
     url: 'https://forms.cloud.microsoft/r/hAs6drJ3xQ',
     description: 'Curated Collections platform expression of interest form'

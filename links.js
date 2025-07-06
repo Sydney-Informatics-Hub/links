@@ -107,6 +107,10 @@ const REDIRECTS = {
   'monday-update': {
     url:'https://ctdshub.atlassian.net/wiki/spaces/INFRA/pages/602537987/Monday+Meeting+Project+Update+Presentation+Roster',
     description:'SIH Monday fortnightly meeting 5-min Project Update Calendar'
+  },
+  'forwards-plan': {
+    url:'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository/Team Folders/Informatics/Group Leads/Team management/TeamForwardPlanning2025onwards.xlsx',
+    description: 'SIH Informatics Team Forwards Plan'
   }
 };
 

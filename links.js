@@ -5,7 +5,7 @@ const REDIRECTS = {
     description: 'SIH JIRA Project management and issue tracking'
   },
   'sharepoint': {
-    url: 'https://unisyd.sharepoint.com/:f:/r/teams/SydneyInformaticsHub2/Shared%20Documents/1%20SIH%20Central%20Document%20Repository',
+    url: 'https://unisyd.sharepoint.com/:f:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository',
     description: 'SIH Central document repository'
   },
   'chat': {
@@ -75,6 +75,10 @@ const REDIRECTS = {
   'mailing-list': {
     url: 'https://signup.e2ma.net/signup/1945889/1928048/',
     description: 'Sydney Informatics Hub News + Training Mailing lists signup page'
+  },
+  'upcoming': {
+    url: 'https://unisyd.sharepoint.com/:l:/r/teams/SydneyInformaticsHub2/Lists/Upcoming Informatics Team Events',
+    description: 'Upcoming SIH events'
   }
 };
 

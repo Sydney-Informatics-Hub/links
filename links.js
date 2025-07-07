@@ -77,7 +77,7 @@ const REDIRECTS = {
     description: 'Sydney Informatics Hub News + Training Mailing lists signup page'
   },
   'upcoming': {
-    url: 'https://unisyd.sharepoint.com/:l:/r/teams/SydneyInformaticsHub2/Lists/Upcoming Informatics Team Events',
+    url: 'https://unisyd.sharepoint.com/:l:/r/teams/SydneyInformaticsHub2/Lists/Upcoming Informatics Team Events?e=cdJqwB',
     description: 'Upcoming Informatics Team Events'
   },
   'leave': {

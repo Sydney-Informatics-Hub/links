@@ -81,7 +81,7 @@ const REDIRECTS = {
     description: 'Upcoming Informatics Team Events'
   },
   'leave': {
-    url:'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository/Admin/Leave and Travel Schedule/SIH_Annual_Leave_and_Business_Travel_Schedule_2025.xlsx',
+    url:'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository/Admin/Leave and Travel Schedule/SIH_Annual_Leave_and_Business_Travel_Schedule_2025.xlsx?web=1',
     description:'SIH Leave Calendar 2025'
   },
   'team-guides': {
@@ -89,7 +89,7 @@ const REDIRECTS = {
     description:'SIH Informatics Team Guides'
   },
   'vm-register': {
-    url:'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository/Team Folders/Informatics/VM and asset management/VM register.xlsx?d=w4acfbde7177a4af9931fb4b7697bbe16&csf=1&web=1&e=huIcPk&nav=MTJfQzEzX3tDMzY3RTQxNy1CQTFCLTNCNDQtQTYyQy04MzA4MzMxN0ZBNkR9',
+    url:'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository/Team Folders/Informatics/VM and asset management/VM register.xlsx?web=1',
     description:'SIH team VM register'
   },
   'client-dashboard': {
@@ -109,7 +109,7 @@ const REDIRECTS = {
     description:'SIH Monday fortnightly meeting 5-min Project Update Calendar'
   },
   'forwards-plan': {
-    url:'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository/Team Folders/Informatics/Group Leads/Team management/TeamForwardPlanning2025onwards.xlsx',
+    url:'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository/Team Folders/Informatics/Group Leads/Team management/TeamForwardPlanning2025onwards.xlsx?web=1',
     description: 'SIH Informatics Team Forwards Plan'
   }
 };

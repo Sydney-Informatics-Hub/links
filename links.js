@@ -111,6 +111,10 @@ const REDIRECTS = {
   'forwards-plan': {
     url:'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository/Team Folders/Informatics/Group Leads/Team management/TeamForwardPlanning2025onwards.xlsx?web=1',
     description: 'SIH Informatics Team Forwards Plan'
+  },
+  'materials': {
+    url: 'https://unisyd.sharepoint.com/teams/SydneyInformaticsHub2/Share',
+    description: 'SIH shared training materials and other university-wide shared documents'
   }
 };
 

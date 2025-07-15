@@ -53,7 +53,7 @@ const REDIRECTS = {
     description: 'SIH JIRA Project management and issue tracking'
   },
   'label': {
-    url: 'http://10.167.67.78:8080',
+    url: 'http://10.122.246.109:8080/',
     description: 'Labelstudio deployment (needs VPN to access)'
   },
   'leave': {

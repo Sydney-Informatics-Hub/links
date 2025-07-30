@@ -92,6 +92,10 @@ const REDIRECTS = {
     url: 'https://github.sydney.edu.au/informatics/trainingmaterials/tree/master/CrossSkilling',
     description: 'SIH Cross-skilling calendar + materials'
   },
+  'src':{
+    url: 'https://intranet.sydney.edu.au/research-support/managing-research/facilities-and-tools/sydney-research-cloud.html',
+    description: 'Sydney Research Cloud information on the Intranet'
+  }
   'stats': {
     url: 'https://sydney-informatics-hub.github.io/stats-resources/',
     description: 'SIH Statistics and data analysis resources'

@@ -81,7 +81,7 @@ const REDIRECTS = {
     description: 'SIH AI Reference Checker: Automated citation validation for AI-generated and academic content.'
   },  
   'request': {
-    url: 'https://sydney.au1.qualtrics.com/jfe/form/SV_5mXyhFZsPIwZDBs'
+    url: 'https://sydney.au1.qualtrics.com/jfe/form/SV_5mXyhFZsPIwZDBs',
     description: 'Sydney Informatics Hub request for assistance form.'
   },
   'research-pulse': {

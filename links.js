@@ -95,7 +95,7 @@ const REDIRECTS = {
   'src':{
     url: 'https://intranet.sydney.edu.au/research-support/managing-research/facilities-and-tools/sydney-research-cloud.html',
     description: 'Sydney Research Cloud information on the Intranet'
-  }
+  },
   'stats': {
     url: 'https://sydney-informatics-hub.github.io/stats-resources/',
     description: 'SIH Statistics and data analysis resources'

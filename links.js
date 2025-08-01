@@ -92,10 +92,6 @@ const REDIRECTS = {
     url: 'https://unisyd.sharepoint.com/:f:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository',
     description: 'SIH Central document repository'
   },
-  'sih-qualtrics': {
-    url: 'https://sydney.au1.qualtrics.com/jfe/form/SV_5mXyhFZsPIwZDBs',
-    description: 'SIH support request form'
-  },
   'skill': {
     url: 'https://github.sydney.edu.au/informatics/trainingmaterials/tree/master/CrossSkilling',
     description: 'SIH Cross-skilling calendar + materials'

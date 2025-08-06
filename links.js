@@ -92,7 +92,7 @@ const REDIRECTS = {
     url: 'https://github.com/Sydney-Informatics-Hub/ResearchPulseAI',
     description: 'ResearchPulseAI: AI-driven Research Impact Assessment Tool and Case Study Generator for NSW Health'
   },
-    'research-compute': {
+  'research-compute': {
     url: 'https://github.com/Sydney-Informatics-Hub/research-computing-tools',
     description: 'SIH research computing resources and tools'
   },

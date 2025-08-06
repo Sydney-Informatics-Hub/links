@@ -76,6 +76,10 @@ const REDIRECTS = {
     url: 'https://app.cogniti.ai/agents/6539de2436d0b628561cad9c/chat?k=tz0LR06KDQMgOaq507-pvaSrCzGwfCHjo829dJLTM4s',
     description: 'University of Sydney Core Research Facility Navigator Chatbot'
   },
+  'nci-su-calculator': {
+    url: 'https://sydney-informatics-hub.github.io/nci-su-calculator/',
+    description: 'Service unit calculator for NCI Gadi HPC'
+  },
   'ref-check': {
     url: 'https://github.com/Sydney-Informatics-Hub/RefCheckAI',
     description: 'SIH AI Reference Checker: Automated citation validation for AI-generated and academic content.'

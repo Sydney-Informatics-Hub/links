@@ -20,6 +20,10 @@ const REDIRECTS = {
     url: 'https://forms.cloud.microsoft/r/hAs6drJ3xQ',
     description: 'Curated Collections platform expression of interest form'
   },
+  'gpu-hack': {
+    url: 'https://github.sydney.edu.au/informatics/DGX-hackathon-central/issues',
+    description: 'GPU Hackathon board (Friday 22/8/2025)'
+  },
   'forwards-plan': {
     url: 'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository/Team Folders/Informatics/Group Leads/Team management/TeamForwardPlanning2025onwards.xlsx?web=1',
     description: 'SIH Informatics Team Forwards Plan'

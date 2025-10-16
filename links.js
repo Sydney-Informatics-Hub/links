@@ -143,10 +143,6 @@ const REDIRECTS = {
   'youtube': {
     url: 'https://www.youtube.com/@sydneyinformaticshub',
     description: 'Sydney Informatics Hub - YouTube'
-  },
-  'ldaca-tools': {
-    url: '15.134.0.211',
-    description: 'AWS instance for LDaCa legacy tools as API. Port 8001-quotation'
   }
 };
 

@@ -100,13 +100,17 @@ const REDIRECTS = {
     url: 'https://sydney.au1.qualtrics.com/jfe/form/SV_5mXyhFZsPIwZDBs',
     description: 'Sydney Informatics Hub request for assistance form.'
   },
+  'research-compute-confluence': {
+    url: 'https://sydneyuni.atlassian.net/wiki/spaces/RC/overview?homepageId=173932782',
+    description: 'Technical documentation for research computing infrastructure at Sydney'
+  },
+  'research-compute-tools': {
+    url: 'https://github.com/Sydney-Informatics-Hub/research-computing-tools',
+    description: 'SIH research computing resources and tools'
+  },
   'research-pulse': {
     url: 'https://github.com/Sydney-Informatics-Hub/ResearchPulseAI',
     description: 'ResearchPulseAI: AI-driven Research Impact Assessment Tool and Case Study Generator for NSW Health'
-  },
-  'research-compute': {
-    url: 'https://github.com/Sydney-Informatics-Hub/research-computing-tools',
-    description: 'SIH research computing resources and tools'
   },
   'sharepoint': {
     url: 'https://unisyd.sharepoint.com/:f:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository',

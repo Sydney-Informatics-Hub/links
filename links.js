@@ -52,6 +52,10 @@ const REDIRECTS = {
     url: 'https://app.cogniti.ai/agents/68099883ab29fb8c2af4154d/chat?k=e8f0C6vSYYuEh40obfkH3IRxlwGDrM6T1bCYXyknfm4',
     description: 'University of Sydney High Performance Computing AI Chat Assistant'
   },
+  'hpc-scheme': {
+    url: 'https://nci.sydney.edu.au/',
+    description: 'Sydney national HPC scheme administration portal'
+  },
   'jira': {
     url: 'https://ctdshub.atlassian.net/jira/software/c/projects/PIPE/boards/27',
     description: 'SIH JIRA Project management and issue tracking'

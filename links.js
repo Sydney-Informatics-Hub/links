@@ -20,10 +20,6 @@ const REDIRECTS = {
     url: 'https://forms.cloud.microsoft/r/hAs6drJ3xQ',
     description: 'Curated Collections platform expression of interest form'
   },
-  'gpu-hack': {
-    url: 'https://github.sydney.edu.au/informatics/DGX-hackathon-central/issues',
-    description: 'GPU Hackathon board (Friday 22/8/2025)'
-  },
   'forwards-plan': {
     url: 'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository/Team Folders/Informatics/Group Leads/Team management/TeamForwardPlanning2025onwards.xlsx?web=1',
     description: 'SIH Informatics Team Forwards Plan'
@@ -40,9 +36,17 @@ const REDIRECTS = {
     url: 'https://sydneyuni.atlassian.net/wiki/x/AYBd1Q',
     description: 'SIH GPU cluster information and specifications'
   },
+  'gpu-onboarding': {
+    url: 'https://sydney.au1.qualtrics.com/jfe/form/SV_5mXyhFZsPIwZDBs?SupportType=GPU',
+    description: 'SIH GPU cluster onboarding form in qualtrics'
+  },
   'gpu-eoi': {
     url: 'https://forms.office.com/r/kmn4P1WNjq',
     description: 'GPU access expression of interest form'
+  },
+  'gpu-hack': {
+    url: 'https://github.sydney.edu.au/informatics/DGX-hackathon-central/issues',
+    description: 'GPU Hackathon board (Friday 22/8/2025)'
   },
   'hf': {
     url: 'https://huggingface.co/SIH',

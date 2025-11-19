@@ -20,6 +20,10 @@ const REDIRECTS = {
     url: 'https://forms.cloud.microsoft/r/hAs6drJ3xQ',
     description: 'Curated Collections platform expression of interest form'
   },
+  'cc': {
+    url: 'http://160.250.232.94:8000',
+    description: 'Curated Collections platform development deployment of Omeka S'
+  },  
   'forwards-plan': {
     url: 'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository/Team Folders/Informatics/Group Leads/Team management/TeamForwardPlanning2025onwards.xlsx?web=1',
     description: 'SIH Informatics Team Forwards Plan'

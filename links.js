@@ -52,6 +52,10 @@ const REDIRECTS = {
     url: 'https://github.sydney.edu.au/informatics/DGX-hackathon-central/issues',
     description: 'GPU Hackathon board (Friday 22/8/2025)'
   },
+  'hacky-hour-zoom': {
+    url: 'https://uni-sydney.zoom.us/j/86462552203',
+    description: 'Zoom link for our monthly SIH Hacky Hour, on the 3rd Wednesday of every month at 2pm.'
+  },  
   'hf': {
     url: 'https://huggingface.co/SIH',
     description: 'SIH Hugging Face organization page'

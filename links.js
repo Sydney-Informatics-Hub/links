@@ -53,7 +53,7 @@ const REDIRECTS = {
     description: 'GPU Hackathon board (Friday 22/8/2025)'
   },
   'hacky-hour-zoom': {
-    url: 'https://uni-sydney.zoom.us/j/86462552203',
+    url: 'https://uni-sydney.zoom.us/my/sih.hackyhour',
     description: 'Zoom link for our monthly SIH Hacky Hour, on the 3rd Wednesday of every month at 2pm.'
   },  
   'hf': {

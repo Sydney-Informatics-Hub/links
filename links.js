@@ -6,7 +6,11 @@ const REDIRECTS = {
   },
   'bio': {
     url: 'https://github.com/Sydney-Informatics-Hub/Bioinformatics',
-    description: 'SIH Bioinformatics resources and tools'
+    description: 'SIH bioinformatics resources and tools'
+  },
+  'bio-training': {
+    url: 'https://sydney-informatics-hub.github.io/bioinformatics-training/',
+    description: 'SIH bioinformatics training'
   },
   'chat': {
     url: 'http://10.122.246.109:3000',

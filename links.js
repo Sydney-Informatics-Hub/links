@@ -20,6 +20,10 @@ const REDIRECTS = {
     url: 'https://app.powerbi.com/groups/6d62871b-a2c5-4c79-bb85-75eb03e90a2d/reports/700a9b42-6a01-44ce-ac7f-a7e0eeeffc35?ctid=82b3e37e-8171-485d-b10b-38dae7ed14a8',
     description: 'SIH Client Dashboard'
   },
+  'nhmrc-grants-2026': {
+    url: 'https://sydney.au1.qualtrics.com/jfe/form/SV_6lFIfPlKRKplg3A',
+    description: 'USyd Collaborative Equipment Grants and NHMRC Equipment Grants Scheme'
+  },
   'collections-eoi': {
     url: 'https://forms.cloud.microsoft/r/hAs6drJ3xQ',
     description: 'Curated Collections platform expression of interest form'

@@ -112,9 +112,9 @@ const REDIRECTS = {
     url: 'https://sydney-informatics-hub.github.io/nci-su-calculator/',
     description: 'Service unit calculator for NCI Gadi HPC'
   },
-  'pawsey-eoi': {
-    url: 'https://sydney.au1.qualtrics.com/jfe/form/SV_8xfMUm8RGupw7HM',
-    description: 'Pawsey early adopter via Sydney HPC Scheme expression of interest form'
+  'pawsey-onboarding': {
+    url: 'https://sydney.au1.qualtrics.com/jfe/form/SV_5mXyhFZsPIwZDBs?SupportType=Pawsey',
+    description: 'Pawsey Setonix HPC onboarding form'
   },  
   'ref-check': {
     url: 'https://github.com/Sydney-Informatics-Hub/RefCheckAI',

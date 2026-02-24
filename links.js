@@ -160,6 +160,10 @@ const REDIRECTS = {
     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     description: 'Important things'
   },
+  'training': {
+    url: 'https://www.sydney.edu.au/research/facilities/sydney-informatics-hub/workshops-and-training/training-calendar.html',
+    description: 'Training calendar'
+  },
   'training-dashboard': {
     url: 'https://app.powerbi.com/groups/6d62871b-a2c5-4c79-bb85-75eb03e90a2d/reports/19d2fbe9-de61-4ea1-bac0-773db6a07aa2?ctid=82b3e37e-8171-485d-b10b-38dae7ed14a8&pbi_source=linkShare',
     description: 'SIH Training Dashboard'

@@ -89,8 +89,8 @@ const REDIRECTS = {
     description: 'Labelstudio deployment (needs VPN to access)'
   },
   'leave': {
-    url: 'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository/Admin/Leave and Travel Schedule/SIH_Annual_Leave_and_Business_Travel_Schedule_2025.xlsx?web=1',
-    description: 'SIH Leave Calendar 2025'
+    url: 'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared%20Documents/1%20SIH%20Central%20Document%20Repository/Admin/Leave%20and%20Travel%20Schedule/SIH_Annual_Leave_and_Business_Travel_Schedule_2026.xlsx?d=wdb8cbe2e7e614bb9889bc5a8136722e1&csf=1&web=1&e=aSUUBA',
+    description: 'SIH Leave Calendar 2026'
   },
   'mailing-list': {
     url: 'https://signup.e2ma.net/signup/1945889/1928048/',

@@ -76,6 +76,10 @@ const REDIRECTS = {
     url: 'https://app.cogniti.ai/agents/68099883ab29fb8c2af4154d/chat?k=e8f0C6vSYYuEh40obfkH3IRxlwGDrM6T1bCYXyknfm4',
     description: 'University of Sydney High Performance Computing AI Chat Assistant'
   },
+  'hpc-dropin': {
+    url: 'https://www.sydney.edu.au/research/facilities/sydney-informatics-hub/workshops-and-training.html#research-computing',
+    description: 'Zoom link for our monthly HPC drop-in sessions, on the 1st Thursday of every month at 12pm.'
+  },
   'hpc-scheme': {
     url: 'https://nci.sydney.edu.au/',
     description: 'Sydney national HPC scheme administration portal'

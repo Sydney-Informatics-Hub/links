@@ -128,7 +128,7 @@ const REDIRECTS = {
     url: 'https://sydney.au1.qualtrics.com/jfe/form/SV_5mXyhFZsPIwZDBs',
     description: 'Sydney Informatics Hub request for assistance form.'
   },
-  'research-compute-confluence': {
+  'research-compute-guides': {
     url: 'https://sydneyuni.atlassian.net/wiki/spaces/RC/overview?homepageId=173932782',
     description: 'Technical documentation for research computing infrastructure at Sydney'
   },

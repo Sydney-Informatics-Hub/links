@@ -77,7 +77,7 @@ const REDIRECTS = {
     description: 'University of Sydney High Performance Computing AI Chat Assistant'
   },
   'hpc-dropin': {
-    url: 'https://www.sydney.edu.au/research/facilities/sydney-informatics-hub/workshops-and-training.html#research-computing',
+    url: 'https://uni-sydney.zoom.us/j/85100208525?from=addon',
     description: 'Zoom link for our monthly HPC drop-in sessions, on the 1st Thursday of every month at 12pm.'
   },
   'hpc-scheme': {

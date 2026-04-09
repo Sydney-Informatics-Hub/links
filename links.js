@@ -180,7 +180,7 @@ const REDIRECTS = {
     url: 'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository/Team Folders/Informatics/VM and asset management/VM register.xlsx?web=1',
     description: 'SIH team VM register'
   },
-  'wimr-dropin': {
+  'wimr-consult': {
     url: 'https://outlook.office.com/book/StatisticalConsultwithAlexandraGreenandAmarinderThind@unisyd.onmicrosoft.com/?ismsaljsauthenabled',
     description: 'WIMR biostatistics consult booking form'
   },

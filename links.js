@@ -183,7 +183,7 @@ const REDIRECTS = {
   'wimr-dropin': {
     url: 'https://outlook.office.com/book/StatisticalConsultwithAlexandraGreenandAmarinderThind@unisyd.onmicrosoft.com/?ismsaljsauthenabled',
     description: 'WIMR biostatistics consult booking form'
-  }
+  },
   'youtube': {
     url: 'https://www.youtube.com/@sydneyinformaticshub',
     description: 'Sydney Informatics Hub - YouTube'

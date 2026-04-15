@@ -144,6 +144,10 @@ const REDIRECTS = {
     url: 'https://unisyd.sharepoint.com/:f:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository',
     description: 'SIH Central document repository'
   },
+  'sih-sharepoint-site': {
+    url: 'https://unisyd.sharepoint.com/teams/SydneyInformaticsHub2/SitePages/00_landing_page.aspx',
+    description: 'SIH Staff Home (previously confluence)'
+  },
   'skill': {
     url: 'https://github.sydney.edu.au/informatics/trainingmaterials/tree/master/CrossSkilling',
     description: 'SIH Cross-skilling calendar + materials'

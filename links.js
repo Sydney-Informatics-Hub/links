@@ -84,6 +84,10 @@ const REDIRECTS = {
     url: 'https://nci.sydney.edu.au/',
     description: 'Sydney national HPC scheme administration portal'
   },
+  'ipa-guide': {
+    url: 'https://github.com/Sydney-Informatics-Hub/IPA-user-guide/blob/main/20260511%20IPA%20user%20guide.pdf',
+    description: 'Ingenuity Pathway Analysis User Guide'
+  },  
   'jira': {
     url: 'https://ctdshub.atlassian.net/jira/software/c/projects/PIPE/boards/27',
     description: 'SIH JIRA Project management and issue tracking'

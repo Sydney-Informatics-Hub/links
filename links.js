@@ -1,5 +1,9 @@
 // Redirect links
 const REDIRECTS = {
+  'wordflow': {
+    url: 'https://milysun.github.io/wordflow-workshop/',
+    description: 'LDaCA Wordflow Workshop Landing Page'
+  },
   'aigis': {
     url: 'https://github.com/Sydney-Informatics-Hub/aigis/blob/main/README.md',
     description: 'Geospatial data with Gen-AI - Sydney Informatics Hub'

@@ -1,6 +1,10 @@
 // Redirect links
 const REDIRECTS = {
   'wordflow': {
+    url: 'https://github.com/Australian-Text-Analytics-Platform/LDaCa_Text_Analytics_Tools/#latest',
+    description: 'LDaCA Wordflow Latest Version'
+  },
+  'wordflow-workshop': {
     url: 'https://milysun.github.io/wordflow-workshop/',
     description: 'LDaCA Wordflow Workshop Landing Page'
   },

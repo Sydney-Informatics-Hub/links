@@ -5,12 +5,16 @@ const REDIRECTS = {
     description: 'Online Screening Tool for the Cambridge Behavioural Inventory-Revised (CBI-R)'
   },
   'wordflow': {
-    url: 'https://github.com/Australian-Text-Analytics-Platform/LDaCa_Text_Analytics_Tools/#latest',
-    description: 'LDaCA Wordflow Latest Version'
+    url: 'https://milysun.github.io/wordflow-workshop/',
+    description: 'LDaCA Wordflow Workshop Landing Page'
+  },
+  'ldaca': {
+    url: 'https://github.com/Australian-Text-Analytics-Platform/LDaCa_Text_Analytics_Tools/tree/main#latest',
+    description: 'LDaCA Tools Github - Wordflow latest Releases'
   },
   'wordflow-workshop': {
     url: 'https://milysun.github.io/wordflow-workshop/',
-    description: 'LDaCA Wordflow Workshop Landing Page'
+    description: 'LDaCA Wordflow Workshop Landing Page - temporary - delete after Jun/2026'
   },
   'aigis': {
     url: 'https://github.com/Sydney-Informatics-Hub/aigis/blob/main/README.md',

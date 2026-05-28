@@ -1,5 +1,9 @@
 // Redirect links
 const REDIRECTS = {
+  'CBI-R': {
+    url: 'https://sydney-informatics-hub.github.io/cbir-screening-tool/',
+    description: 'Online Screening Tool for the Cambridge Behavioural Inventory-Revised (CBI-R)'
+  },
   'wordflow': {
     url: 'https://github.com/Australian-Text-Analytics-Platform/LDaCa_Text_Analytics_Tools/#latest',
     description: 'LDaCA Wordflow Latest Version'

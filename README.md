@@ -15,7 +15,9 @@ Navigate directly to a shortlink to be redirected:
 
 ## Searching the directory
 
-Visit [sih.tools](https://sih.tools) to browse all links. You can pre-filter the search by appending a query param:
+Visit [sih.tools](https://sih.tools) to browse all links. Search supports fuzzy matching and separator-insensitive queries (e.g. "gpu doc", "gpu-doc", and "gpudoc" all find `gpu/docs`). Search is powered by [MiniSearch](https://github.com/lucaong/minisearch) by Luca Ongaro (MIT licence), self-hosted in `minisearch.js`.
+
+You can pre-filter the search by appending a query param:
 
 - [sih.tools?bio](https://sih.tools?bio) — shows all links matching "bio"
 - [sih.tools?ai](https://sih.tools?ai) — shows all links matching "ai"

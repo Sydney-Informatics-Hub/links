@@ -218,105 +218,92 @@ function highlightMatch(text, searchTerm) {
     return text.replace(regex, '<mark>$1</mark>');
 }
 
-function normalise(str) {
-    return str.toLowerCase().replace(/[\s\-_/]+/g, '');
+// Normalise separators so gpu-doc, gpu/doc, gpu_doc, "gpu doc" all match gpudoc
+function normaliseTerm(term) {
+    return term.toLowerCase().replace(/[\s\-_/]+/g, '');
 }
 
-function levenshtein(a, b) {
-    const m = a.length, n = b.length;
-    const dp = Array.from({length: m + 1}, (_, i) => [i, ...Array(n).fill(0)]);
-    for (let j = 0; j <= n; j++) dp[0][j] = j;
-    for (let i = 1; i <= m; i++)
-        for (let j = 1; j <= n; j++)
-            dp[i][j] = a[i-1] === b[j-1]
-                ? dp[i-1][j-1]
-                : 1 + Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]);
-    return dp[m][n];
-}
+let miniSearch = null;
 
-function fuzzyScore(text, term) {
-    // Find best edit distance between term and any same-length window in text
-    const a = normalise(text), b = normalise(term);
-    if (a.includes(b)) return 0;
-    if (b.length === 0 || a.length === 0) return b.length || a.length;
-    let best = Infinity;
-    for (let start = 0; start <= a.length - b.length + 2; start++) {
-        const window = a.slice(start, start + b.length);
-        if (window.length === 0) break;
-        best = Math.min(best, levenshtein(window, b));
-        if (best === 0) return 0;
-    }
-    return best;
+function buildIndex() {
+    miniSearch = new MiniSearch({
+        fields: ['shortcut', 'shortcutNorm', 'description', 'url'],
+        storeFields: ['shortcut', 'entry'],
+        idField: 'shortcut',
+        tokenize: str => str.split(/[\s\-_/]+/).filter(Boolean),
+        processTerm: term => term.toLowerCase(),
+        searchOptions: {
+            prefix: true,
+            fuzzy: term => Math.ceil(0.35 * term.length),
+            boost: { shortcut: 3, shortcutNorm: 2, description: 2, url: 1 },
+        }
+    });
+
+    const docs = allLinks.map(([shortcut, entry]) => ({
+        shortcut,
+        shortcutNorm: normaliseTerm(shortcut), // e.g. "gpu/docs" → "gpudocs"
+        entry,
+        description: getRedirectDescription(entry),
+        url: getRedirectUrl(entry),
+    }));
+    miniSearch.addAll(docs);
 }
 
 function filterLinks(searchTerm) {
     const container = document.getElementById('links-container');
     const noResults = document.getElementById('no-results');
     const searchResultsCount = document.getElementById('search-results-count');
-    
+
     if (!searchTerm.trim()) {
-        // Show all links
-        const linkCards = allLinks.map(([shortcut, redirectEntry]) => 
+        const linkCards = allLinks.map(([shortcut, redirectEntry]) =>
             createLinkCard(shortcut, redirectEntry)
         ).join('');
-        
         container.querySelector('tbody').innerHTML = linkCards;
         noResults.style.display = 'none';
         container.style.display = '';
         searchResultsCount.textContent = '';
         return;
     }
-    
-    const searchNorm = normalise(searchTerm);
 
-    // Exact (substring) matches — normalise both sides so separators are ignored
-    const exactLinks = allLinks.filter(([shortcut, redirectEntry]) => {
-        const destinationUrl = getRedirectUrl(redirectEntry);
-        const description = getRedirectDescription(redirectEntry);
-        return (
-            normalise(shortcut).includes(searchNorm) ||
-            normalise(description).includes(searchNorm) ||
-            normalise(destinationUrl).includes(searchNorm) ||
-            normalise(getDomainFromUrl(destinationUrl)).includes(searchNorm)
+    const results = miniSearch.search(searchTerm);
+
+    // Split into exact (prefix/substring) vs fuzzy
+    // MiniSearch marks which terms matched via fuzzy in result.match
+    const exactKeys = new Set();
+    const fuzzyKeys = new Set();
+    for (const r of results) {
+        const isFuzzy = Object.values(r.match).some(fields =>
+            fields.some(f => r.queryTerms && r.queryTerms.some(qt => !f.startsWith(qt)))
         );
-    });
-
-    // Fuzzy matches: pad up to 10 results using edit distance
-    const MAX_DISTANCE = searchNorm.length <= 2 ? 0 : searchNorm.length <= 4 ? 1 : 2;
-    let fuzzyLinks = [];
-    if (exactLinks.length < 10) {
-        const exactKeys = new Set(exactLinks.map(([k]) => k));
-        fuzzyLinks = allLinks
-            .filter(([k]) => !exactKeys.has(k))
-            .map(([k, v]) => {
-                const score = Math.min(
-                    fuzzyScore(k, searchNorm),
-                    fuzzyScore(getRedirectDescription(v), searchNorm),
-                    fuzzyScore(getRedirectUrl(v), searchNorm)
-                );
-                return [k, v, score];
-            })
-            .filter(([,, score]) => score <= MAX_DISTANCE && score > 0)
-            .sort(([,, a], [,, b]) => a - b)
-            .slice(0, 10 - exactLinks.length)
-            .map(([k, v]) => [k, v]);
+        // Simpler heuristic: if score is high relative to others, treat as exact
+        exactKeys.add(r.shortcut); // we'll separate by score below
     }
 
-    const totalResults = exactLinks.length + fuzzyLinks.length;
+    // Separate by whether the normalised search term appears as a substring
+    // "Exact" = every search token appears as a substring in the normalised fields
+    const searchTokens = searchTerm.toLowerCase().split(/[\s\-_/]+/).filter(Boolean);
+    const exactResults = results.filter(r => {
+        const hay = normaliseTerm(`${r.shortcut} ${r.description || ''} ${r.url || ''}`);
+        return searchTokens.every(tok => hay.includes(tok));
+    });
+    const exactSet = new Set(exactResults.map(r => r.shortcut));
+    const fuzzyResults = results.filter(r => !exactSet.has(r.shortcut));
+
+    const totalResults = results.length;
 
     if (totalResults === 0) {
         container.style.display = 'none';
         noResults.style.display = 'block';
         searchResultsCount.textContent = 'No results found';
     } else {
-        let rows = exactLinks.map(([shortcut, redirectEntry]) =>
-            createLinkCard(shortcut, redirectEntry, searchTerm)
+        let rows = exactResults.map(r =>
+            createLinkCard(r.shortcut, r.entry, searchTerm)
         ).join('');
 
-        if (fuzzyLinks.length > 0) {
+        if (fuzzyResults.length > 0) {
             rows += `<tr class="fuzzy-divider"><td colspan="4" style="font-size:0.75rem;color:var(--pico-muted-color);padding:0.4rem 0.5rem;border-top:1px dashed var(--pico-table-border-color)">Similar matches</td></tr>`;
-            rows += fuzzyLinks.map(([shortcut, redirectEntry]) =>
-                createLinkCard(shortcut, redirectEntry, searchTerm, true)
+            rows += fuzzyResults.map(r =>
+                createLinkCard(r.shortcut, r.entry, searchTerm, true)
             ).join('');
         }
 
@@ -324,8 +311,8 @@ function filterLinks(searchTerm) {
         container.style.display = '';
         noResults.style.display = 'none';
 
-        const exactText = exactLinks.length === 1 ? '1 result' : `${exactLinks.length} results`;
-        const fuzzyText = fuzzyLinks.length > 0 ? `, ${fuzzyLinks.length} similar` : '';
+        const exactText = exactResults.length === 1 ? '1 result' : `${exactResults.length} results`;
+        const fuzzyText = fuzzyResults.length > 0 ? `, ${fuzzyResults.length} similar` : '';
         searchResultsCount.textContent = exactText + fuzzyText + ' found';
     }
 
@@ -370,6 +357,9 @@ function renderLinks() {
         searchInput.value = prefill;
         currentSearchTerm = prefill;
     }
+
+    // Build MiniSearch index
+    buildIndex();
 
     // Initial render (filtered if prefill set)
     filterLinks(currentSearchTerm);

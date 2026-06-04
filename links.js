@@ -221,7 +221,3 @@ const REDIRECTS = {
 //    description:''
 //     }
 //
-
-
-// Catch-all URL for unmatched paths
-const CATCH_ALL_URL = 'https://informatics.sydney.edu.au';

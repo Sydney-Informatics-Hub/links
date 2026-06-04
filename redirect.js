@@ -36,7 +36,16 @@ function getShortlink() {
 
 const shortlink = getShortlink();
 const redirectEntry = REDIRECTS[shortlink];
-const redirectUrl = redirectEntry ? getRedirectUrl(redirectEntry) : CATCH_ALL_URL;
 
-// Redirect immediately
+let redirectUrl;
+if (redirectEntry) {
+    redirectUrl = getRedirectUrl(redirectEntry);
+} else {
+    // No match — send to directory search so user can find what they wanted
+    const base = window.location.hostname.includes('github.io')
+        ? `/${window.location.pathname.split('/')[1]}/`
+        : '/';
+    redirectUrl = `${window.location.protocol}//${window.location.hostname}${base}?q=${encodeURIComponent(shortlink)}`;
+}
+
 window.location.replace(redirectUrl);

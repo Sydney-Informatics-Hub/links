@@ -44,13 +44,20 @@
 
 .col-copy {
     width: 1%;
-    text-align: right;
+    text-align: center;
 }
 
 .copy-btn {
     cursor: pointer;
-    opacity: 0.4;
+    opacity: 0.6;
     transition: opacity 0.15s;
+    vertical-align: middle;
+}
+
+.copy-btn svg {
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: middle;
 }
 
 .copy-btn:hover {

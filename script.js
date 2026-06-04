@@ -31,6 +31,84 @@ function getShortlinkUrl(shortcut) {
     return `${protocol}//${hostname}/${shortcut}`;
 }
 
+function showQR(url, shortcut, event) {
+    event.stopPropagation();
+    document.querySelector('.qr-popup')?.remove();
+
+    // Generate QR code using Nayuki library
+    const qr = qrcodegen.QrCode.encodeText(url, qrcodegen.QrCode.Ecc.MEDIUM);
+    const scale = 4;
+    const border = 2;
+    const size = (qr.size + border * 2) * scale;
+
+    const canvas = document.createElement('canvas');
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, size, size);
+    ctx.fillStyle = '#000000';
+    for (let y = 0; y < qr.size; y++) {
+        for (let x = 0; x < qr.size; x++) {
+            if (qr.getModule(x, y)) {
+                ctx.fillRect((x + border) * scale, (y + border) * scale, scale, scale);
+            }
+        }
+    }
+
+    const popup = document.createElement('div');
+    popup.className = 'qr-popup';
+
+    popup.innerHTML = `
+        <div style="font-size:0.7rem;color:#666;margin-bottom:0.4rem;word-break:break-all;max-width:200px">${url}</div>
+        <div style="text-align:center"></div>
+        <div style="display:flex;gap:0.5rem;margin-top:0.75rem;justify-content:center">
+            <button id="qr-copy-btn" class="contrast">Copy</button>
+            <button id="qr-download-btn" class="secondary">Download</button>
+        </div>
+    `;
+    popup.querySelector('div:nth-child(2)').appendChild(canvas);
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    const margin = 8;
+    // Position: prefer below, flip above if near bottom of viewport
+    const spaceBelow = window.innerHeight - rect.bottom;
+    const popupHeight = 260;
+    const top = spaceBelow > popupHeight
+        ? rect.bottom + 6
+        : rect.top - popupHeight - 6;
+    popup.style.cssText = `position:fixed;z-index:9999;background:var(--pico-card-background-color,white);border:1px solid var(--pico-card-border-color,#ccc);border-radius:8px;padding:0.75rem;box-shadow:0 4px 12px rgba(0,0,0,0.15);top:${top}px;left:${rect.left}px`;
+    document.body.appendChild(popup);
+    // Clamp horizontally so popup stays within viewport
+    const popupRect = popup.getBoundingClientRect();
+    if (popupRect.right > window.innerWidth - margin) {
+        popup.style.left = `${window.innerWidth - popupRect.width - margin}px`;
+    }
+    if (popupRect.left < margin) {
+        popup.style.left = `${margin}px`;
+    }
+
+    popup.querySelector('#qr-copy-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        // Pass promise directly so user gesture isn't lost in async callback
+        const blobPromise = new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+        navigator.clipboard.write([new ClipboardItem({ 'image/png': blobPromise })])
+            .then(() => showToast('QR code copied!'))
+            .catch(() => showToast('Copy not supported in this browser'));
+    });
+
+    popup.querySelector('#qr-download-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        const a = document.createElement('a');
+        a.href = canvas.toDataURL('image/png');
+        const filename = 'qr_' + url.replace(/^https?:\/\//, '').replace(/[./]/g, '_') + '.png';
+        a.download = filename;
+        a.click();
+    });
+
+    setTimeout(() => document.addEventListener('click', () => popup.remove(), { once: true }), 0);
+}
+
 function showToast(message) {
     // Remove existing toast if any
     const existingToast = document.querySelector('.toast');
@@ -122,6 +200,11 @@ function createLinkCard(shortcut, redirectEntry, searchTerm = '') {
                         <path d="M29,16h2V6.68A1.66,1.66,0,0,0,29.35,5H27.08V7H29Z"/>
                         <path d="M29,31H7V7H9V5H6.64A1.66,1.66,0,0,0,5,6.67V31.32A1.66,1.66,0,0,0,6.65,33H29.36A1.66,1.66,0,0,0,31,31.33V22.06H29Z"/>
                     </svg>
+                </span>
+            </td>
+            <td class="col-qr">
+                <span class="copy-btn" onclick="showQR('${shortlinkUrl}', '${shortcut}', event)" title="Show QR code">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h7v7H3zm1 1v5h5V4zm1 1h3v3H5zm8-2h7v7h-7zm1 1v5h5V4zm1 1h3v3h-3zM3 13h7v7H3zm1 1v5h5v-5zm1 1h3v3H5zm8 0h2v2h-2zm2 2h2v2h-2zm-2 2h2v2h-2zm2 2h2v2h-2zm2-4h2v2h-2zm0 4h2v2h-2zm-4-2h2v2h-2z"/></svg>
                 </span>
             </td>
         </tr>

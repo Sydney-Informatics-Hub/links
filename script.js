@@ -115,7 +115,7 @@ function createLinkCard(shortcut, redirectEntry, searchTerm = '') {
             </td>
             <td class="col-description">${displayDescription}</td>
             <td class="col-copy">
-                <button class="copy-btn" onclick="copyToClipboard('${shortlinkUrl}')" title="Copy short link">📋</button>
+                <span class="copy-btn" onclick="copyToClipboard('${shortlinkUrl}')" title="Copy short link">📋</span>
             </td>
         </tr>
     `;

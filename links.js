@@ -6,7 +6,7 @@ const REDIRECTS = {
   },
   'wordflow': {
     url: 'https://milysun.github.io/wordflow-workshop/',
-    description: 'LDaCA Wordflow Workshop Landing Page'
+    description: 'Wordflow Workshops Landing Page'
   },
   'ldaca': {
     url: 'https://australian-text-analytics-platform.github.io/LDaCa_Text_Analytics_Tools/',

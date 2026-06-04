@@ -1,8 +1,27 @@
-.link-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1rem;
-    margin-top: 2rem;
+#links-container {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+#links-container td {
+    vertical-align: middle;
+}
+
+.col-shortcut {
+    white-space: nowrap;
+    width: 1%;
+}
+
+.col-copy {
+    width: 1%;
+    text-align: right;
+}
+
+.copy-btn {
+    padding: 0.2em 0.5em;
+    font-size: 0.85em;
+    display: inline;
+    width: auto;
 }
 
 .favicon {

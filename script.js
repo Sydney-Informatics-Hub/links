@@ -99,41 +99,25 @@ function createLinkCard(shortcut, redirectEntry, searchTerm = '') {
     const destinationUrl = getRedirectUrl(redirectEntry);
     const description = getRedirectDescription(redirectEntry) || '';
     const shortlinkUrl = getShortlinkUrl(shortcut);
-    const destinationDomain = getDomainFromUrl(destinationUrl);
     const faviconUrl = getFaviconUrl(destinationUrl);
 
     const displayShortcut = highlightMatch(shortcut, searchTerm);
     const displayDescription = highlightMatch(description, searchTerm);
-    const displayUrl = highlightMatch(getSimpleUrl(destinationUrl), searchTerm);
-    const displayDomain = highlightMatch(destinationDomain, searchTerm);
 
     return `
-        <article title="${destinationUrl}" 
-             data-shortcut="${shortcut}" 
-             data-description="${description.toLowerCase()}" 
-             data-url="${destinationUrl.toLowerCase()}" 
-             data-domain="${destinationDomain.toLowerCase()}">
-             
-            <header>
+        <tr title="${destinationUrl}"
+            data-shortcut="${shortcut}"
+            data-description="${description.toLowerCase()}"
+            data-url="${destinationUrl.toLowerCase()}">
+            <td class="col-shortcut">
                 ${faviconUrl ? `<img src="${faviconUrl}" alt="" class="favicon" onerror="this.style.display='none'">` : ''}
-                /${displayShortcut}
-                <br>
-                <small>→ ${displayUrl}</small>
-            </header>
-            
-            
-            
-            ${description ? `<div class="link-description">${displayDescription}</div>` : ''}
-            
-            <footer>
-                <button onclick="copyToClipboard('${shortlinkUrl}')" title="Copy short link">
-                    📋 Copy
-                </button>
-                <button class="secondary" onclick="window.open('${shortlinkUrl}', '_blank')" title="Visit ${destinationUrl}">
-                    🔗 Visit
-                </button>
-            </footer>
-        </article>
+                <a href="${shortlinkUrl}" target="_blank">/${displayShortcut}</a>
+            </td>
+            <td class="col-description">${displayDescription}</td>
+            <td class="col-copy">
+                <button class="copy-btn" onclick="copyToClipboard('${shortlinkUrl}')" title="Copy short link">📋</button>
+            </td>
+        </tr>
     `;
 }
 
@@ -155,9 +139,9 @@ function filterLinks(searchTerm) {
             createLinkCard(shortcut, redirectEntry)
         ).join('');
         
-        container.innerHTML = linkCards;
+        container.querySelector('tbody').innerHTML = linkCards;
         noResults.style.display = 'none';
-        container.style.display = 'grid';
+        container.style.display = '';
         searchResultsCount.textContent = '';
         return;
     }
@@ -186,8 +170,8 @@ function filterLinks(searchTerm) {
             createLinkCard(shortcut, redirectEntry, searchTerm)
         ).join('');
         
-        container.innerHTML = linkCards;
-        container.style.display = 'grid';
+        container.querySelector('tbody').innerHTML = linkCards;
+        container.style.display = '';
         noResults.style.display = 'none';
         
         const resultText = filteredLinks.length === 1 ? 'result' : 'results';

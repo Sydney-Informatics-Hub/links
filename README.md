@@ -21,6 +21,14 @@ Visit [sih.tools](https://sih.tools) to browse all links. You can pre-filter the
 - [sih.tools?ai](https://sih.tools?ai) — shows all links matching "ai"
 - [sih.tools?gpu](https://sih.tools?gpu) — shows all links matching "gpu"
 
+## QR codes
+
+Every link in the directory has a QR code button. Clicking it generates a QR code for the shortlink on the spot (no external service — generated locally in the browser using the [Nayuki QR Code generator](https://www.nayuki.io/page/qr-code-generator-library) in file `qrcodegen.js`).
+
+From the popup you can:
+- **Copy** — copies the QR code as a PNG image to your clipboard
+- **Download** — saves it as a PNG named `qr_sih_tools_<shortcut>.png`
+
 ## Analytics
 
 Usage metrics are collected via GoatCounter and viewable at [sih.goatcounter.com](https://sih.goatcounter.com/).

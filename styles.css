@@ -89,6 +89,10 @@
     transform: translateX(0);
 }
 
+tr.fuzzy-result td {
+    opacity: 0.6;
+}
+
 .no-results {
     text-align: center;
     padding: 3rem 1rem;

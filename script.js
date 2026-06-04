@@ -173,7 +173,7 @@ function getFaviconUrl(url) {
     }
 }
 
-function createLinkCard(shortcut, redirectEntry, searchTerm = '') {
+function createLinkCard(shortcut, redirectEntry, searchTerm = '', fuzzy = false) {
     const destinationUrl = getRedirectUrl(redirectEntry);
     const description = getRedirectDescription(redirectEntry) || '';
     const shortlinkUrl = getShortlinkUrl(shortcut);
@@ -183,7 +183,7 @@ function createLinkCard(shortcut, redirectEntry, searchTerm = '') {
     const displayDescription = highlightMatch(description, searchTerm);
 
     return `
-        <tr title="${destinationUrl}"
+        <tr title="${destinationUrl}" ${fuzzy ? 'class="fuzzy-result"' : ''}
             data-shortcut="${shortcut}"
             data-description="${description.toLowerCase()}"
             data-url="${destinationUrl.toLowerCase()}">
@@ -218,6 +218,37 @@ function highlightMatch(text, searchTerm) {
     return text.replace(regex, '<mark>$1</mark>');
 }
 
+function normalise(str) {
+    return str.toLowerCase().replace(/[\s\-_/]+/g, '');
+}
+
+function levenshtein(a, b) {
+    const m = a.length, n = b.length;
+    const dp = Array.from({length: m + 1}, (_, i) => [i, ...Array(n).fill(0)]);
+    for (let j = 0; j <= n; j++) dp[0][j] = j;
+    for (let i = 1; i <= m; i++)
+        for (let j = 1; j <= n; j++)
+            dp[i][j] = a[i-1] === b[j-1]
+                ? dp[i-1][j-1]
+                : 1 + Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]);
+    return dp[m][n];
+}
+
+function fuzzyScore(text, term) {
+    // Find best edit distance between term and any same-length window in text
+    const a = normalise(text), b = normalise(term);
+    if (a.includes(b)) return 0;
+    if (b.length === 0 || a.length === 0) return b.length || a.length;
+    let best = Infinity;
+    for (let start = 0; start <= a.length - b.length + 2; start++) {
+        const window = a.slice(start, start + b.length);
+        if (window.length === 0) break;
+        best = Math.min(best, levenshtein(window, b));
+        if (best === 0) return 0;
+    }
+    return best;
+}
+
 function filterLinks(searchTerm) {
     const container = document.getElementById('links-container');
     const noResults = document.getElementById('no-results');
@@ -236,36 +267,66 @@ function filterLinks(searchTerm) {
         return;
     }
     
-    // Filter links
-    const filteredLinks = allLinks.filter(([shortcut, redirectEntry]) => {
+    const searchNorm = normalise(searchTerm);
+
+    // Exact (substring) matches — normalise both sides so separators are ignored
+    const exactLinks = allLinks.filter(([shortcut, redirectEntry]) => {
         const destinationUrl = getRedirectUrl(redirectEntry);
         const description = getRedirectDescription(redirectEntry);
-        const destinationDomain = getDomainFromUrl(destinationUrl);
-        
-        const searchLower = searchTerm.toLowerCase();
         return (
-            shortcut.toLowerCase().includes(searchLower) ||
-            description.toLowerCase().includes(searchLower) ||
-            destinationUrl.toLowerCase().includes(searchLower) ||
-            destinationDomain.toLowerCase().includes(searchLower)
+            normalise(shortcut).includes(searchNorm) ||
+            normalise(description).includes(searchNorm) ||
+            normalise(destinationUrl).includes(searchNorm) ||
+            normalise(getDomainFromUrl(destinationUrl)).includes(searchNorm)
         );
     });
-    
-    if (filteredLinks.length === 0) {
+
+    // Fuzzy matches: pad up to 10 results using edit distance
+    const MAX_DISTANCE = searchNorm.length <= 2 ? 0 : searchNorm.length <= 4 ? 1 : 2;
+    let fuzzyLinks = [];
+    if (exactLinks.length < 10) {
+        const exactKeys = new Set(exactLinks.map(([k]) => k));
+        fuzzyLinks = allLinks
+            .filter(([k]) => !exactKeys.has(k))
+            .map(([k, v]) => {
+                const score = Math.min(
+                    fuzzyScore(k, searchNorm),
+                    fuzzyScore(getRedirectDescription(v), searchNorm),
+                    fuzzyScore(getRedirectUrl(v), searchNorm)
+                );
+                return [k, v, score];
+            })
+            .filter(([,, score]) => score <= MAX_DISTANCE && score > 0)
+            .sort(([,, a], [,, b]) => a - b)
+            .slice(0, 10 - exactLinks.length)
+            .map(([k, v]) => [k, v]);
+    }
+
+    const totalResults = exactLinks.length + fuzzyLinks.length;
+
+    if (totalResults === 0) {
         container.style.display = 'none';
         noResults.style.display = 'block';
         searchResultsCount.textContent = 'No results found';
     } else {
-        const linkCards = filteredLinks.map(([shortcut, redirectEntry]) => 
+        let rows = exactLinks.map(([shortcut, redirectEntry]) =>
             createLinkCard(shortcut, redirectEntry, searchTerm)
         ).join('');
-        
-        container.querySelector('tbody').innerHTML = linkCards;
+
+        if (fuzzyLinks.length > 0) {
+            rows += `<tr class="fuzzy-divider"><td colspan="4" style="font-size:0.75rem;color:var(--pico-muted-color);padding:0.4rem 0.5rem;border-top:1px dashed var(--pico-table-border-color)">Similar matches</td></tr>`;
+            rows += fuzzyLinks.map(([shortcut, redirectEntry]) =>
+                createLinkCard(shortcut, redirectEntry, searchTerm, true)
+            ).join('');
+        }
+
+        container.querySelector('tbody').innerHTML = rows;
         container.style.display = '';
         noResults.style.display = 'none';
-        
-        const resultText = filteredLinks.length === 1 ? 'result' : 'results';
-        searchResultsCount.textContent = `${filteredLinks.length} ${resultText} found`;
+
+        const exactText = exactLinks.length === 1 ? '1 result' : `${exactLinks.length} results`;
+        const fuzzyText = fuzzyLinks.length > 0 ? `, ${fuzzyLinks.length} similar` : '';
+        searchResultsCount.textContent = exactText + fuzzyText + ' found';
     }
 
 }

@@ -283,7 +283,7 @@ function filterLinks(searchTerm) {
     // "Exact" = every search token appears as a substring in the normalised fields
     const searchTokens = searchTerm.toLowerCase().split(/[\s\-_/]+/).filter(Boolean);
     const exactResults = results.filter(r => {
-        const hay = normaliseTerm(`${r.shortcut} ${r.description || ''} ${r.url || ''}`);
+        const hay = normaliseTerm(`${r.shortcut} ${getRedirectDescription(r.entry)} ${getRedirectUrl(r.entry)}`);
         return searchTokens.every(tok => hay.includes(tok));
     });
     const exactSet = new Set(exactResults.map(r => r.shortcut));

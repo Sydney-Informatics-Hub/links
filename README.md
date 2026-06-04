@@ -1,16 +1,52 @@
-# links
-Url shortener for Sydney Informatics Hub links. E.g.:
+# SIH Quick Links
 
-## Examples
+A minimalist URL shortener and link directory for Sydney Informatics Hub. Shortlinks redirect instantly; the index page lets you browse and search all links.
 
-[sih.tools/jira](https://sih.tools/jira) SIH JIRA PIPE ticket board
+![SIH Quick Links screenshot](sih_links_screenshot.jpeg)
 
-[sih.tools/bio](https://sih.tools/bio) Bioinformatics Team Github Page
+## Using shortlinks
 
-[sih.tools/sharepoint](https://sih.tools/sharepoint) SIH Sharepoint Documents
+Navigate directly to a shortlink to be redirected:
 
-[sih.tools/stats](https://sih.tools/stats) Stats Resources Page
+- [sih.tools/gpu](https://sih.tools/gpu) — GPU cluster information
+- [sih.tools/bio](https://sih.tools/bio) — Bioinformatics resources
+- [sih.tools/jira](https://sih.tools/jira) — SIH JIRA board
+- [sih.tools/sharepoint](https://sih.tools/sharepoint) — SIH Sharepoint documents
 
-## Add a link
+## Searching the directory
 
-Add a shortlink by adding something to the [links.js](links.js) file above!
+Visit [sih.tools](https://sih.tools) to browse all links. You can pre-filter the search by appending a query param:
+
+- [sih.tools?bio](https://sih.tools?bio) — shows all links matching "bio"
+- [sih.tools?ai](https://sih.tools?ai) — shows all links matching "ai"
+- [sih.tools?gpu](https://sih.tools?gpu) — shows all links matching "gpu"
+
+## Analytics
+
+Usage metrics are collected via GoatCounter and viewable at [sih.goatcounter.com](https://sih.goatcounter.com/).
+
+## Adding a shortlink
+
+Edit [links.js](links.js) and add an entry to the `REDIRECTS` object:
+
+```js
+// Simple redirect
+"shortcut": "https://example.com",
+
+// With a description
+"shortcut": { url: "https://example.com", description: "What this link is" },
+```
+
+The shortlink will be live at `sih.tools/shortcut` as soon as the change is merged.
+
+> **Note:** Every entry in the object must be followed by a comma, including the one before your new entry. Missing commas will break all redirects.
+
+Shortlinks can be hierarchical — slashes in the key create nested URLs:
+
+```js
+"gpu": { url: "...", description: "GPU cluster overview" },
+"gpu/docs": { url: "...", description: "GPU cluster documentation" },
+"gpu/onboarding": { url: "...", description: "GPU cluster onboarding" },
+```
+
+This gives you `sih.tools/gpu`, `sih.tools/gpu/docs`, `sih.tools/gpu/onboarding`, etc. The hierarchy is just a naming convention in the key — each entry is still an independent redirect.

@@ -16,22 +16,22 @@ function getShortlink() {
     // If accessing via custom domain
     if (hostname === 'sih.tools') {
         // Path is /shortlink, so remove leading slash
-        return pathname.substring(1).toLowerCase();
+        return pathname.substring(1).replace(/\/$/, '').toLowerCase();
     }
-    
+
     // If accessing via GitHub Pages (my-org.github.io)
     if (hostname.includes('github.io')) {
         // Path is /links/shortlink, so remove /links/ prefix
         const parts = pathname.split('/');
         if (parts.length >= 3 && parts[1] === 'links') {
-            return parts[2].toLowerCase();
+            return parts[2].replace(/\/$/, '').toLowerCase();
         }
         // If somehow accessing /links/ directly, redirect to catch-all
         return '';
     }
-    
+
     // Fallback
-    return pathname.substring(1).toLowerCase();
+    return pathname.substring(1).replace(/\/$/, '').toLowerCase();
 }
 
 const shortlink = getShortlink();

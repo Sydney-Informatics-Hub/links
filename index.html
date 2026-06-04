@@ -12,20 +12,11 @@
     <script src="links.js"></script>
 </head>
 <body>
-    <main class="container" style="display: flex; flex-direction: column; height: 100vh; overflow: hidden;">
+    <main class="container" id="main-container">
         <header>
-            <hgroup class="container">
-                <h2>SIH 🔗 Quick Links 
-                    &nbsp;
-                    <a  
-                    href="https://github.com/Sydney-Informatics-Hub/links/edit/main/links.js" 
-                    role="button" 
-                    class="outline"
-                    target="_blank"
-                    >
-                        ✏️ Add link
-                    </a>
-                </h2>
+            <hgroup class="container" style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem;">
+                <h2 style="margin: 0;">SIH 🔗 Quick Links</h2>
+                <a href="https://github.com/Sydney-Informatics-Hub/links/edit/main/links.js" target="_blank" style="white-space: nowrap;">✏️ Edit links</a>
             </hgroup>
             <!-- Search Section -->
                 <input 
@@ -43,7 +34,7 @@
 
 
 
-        <div style="overflow-y: auto; flex: 1;">
+        <div id="table-scroll-container">
         <table id="links-container">
             <thead>
                 <tr>
@@ -63,9 +54,6 @@
             <p>Try searching for shortcuts, descriptions, or destination URLs.</p>
         </div>
 
-        <footer style="margin-top: 3rem; text-align: center; color: var(--muted-color);">
-            <p><a href="https://github.com/Sydney-Informatics-Hub/links/edit/main/links.js" target="_blank">✏️ Edit Links</a></p>
-        </footer>
     </main>
 
     <script src="script.js"></script>

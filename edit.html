@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIH Links - Edit Mode</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.red.min.css">
+    <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <script src="links.js"></script>
+</head>
+<body>
+    <main class="container">
+        <header>
+            <hgroup class="container">
+                <h2>SIH 🔗 Quick Links - Edit Mode
+                    &nbsp;
+                    <a href="index.html" role="button" class="secondary">
+                        👁️ View Mode
+                    </a>
+                </h2>
+            </hgroup>
+            
+            <!-- Search Section -->
+            <input 
+                type="search" 
+                id="search-input" 
+                placeholder="Search links... (shortcut, description, or URL)"
+                autocomplete="off"
+            >
+            <span id="search-results-count"></span>
+            
+            <!-- Add New Link Button -->
+            <button id="add-link-btn" class="contrast">
+                ➕ Add New Link
+            </button>
+        </header>
+
+        <div id="links-container" class="link-grid">
+            <!-- Links will be populated here -->
+        </div>
+        
+        <div id="no-results" class="no-results" style="display: none;">
+            <p>🔍 No links found matching your search.</p>
+            <p>Try searching for shortcuts, descriptions, or destination URLs.</p>
+        </div>
+
+        <!-- Add/Edit Modal -->
+        <dialog id="link-modal">
+            <article>
+                <header>
+                    <h3 id="modal-title">Add New Link</h3>
+                    <button id="modal-close" class="close" aria-label="Close"></button>
+                </header>
+                <form id="link-form">
+                    <label for="shortcut">
+                        Shortcut
+                        <input type="text" id="shortcut" name="shortcut" placeholder="e.g., jira" required>
+                        <small>The short name that will appear after sih.tools/</small>
+                    </label>
+                    
+                    <label for="url">
+                        Destination URL
+                        <input type="url" id="url" name="url" placeholder="https://example.com" required>
+                        <small>The full URL this shortcut should redirect to</small>
+                    </label>
+                    
+                    <label for="description">
+                        Description
+                        <input type="text" id="description" name="description" placeholder="Brief description of this link">
+                        <small>Optional: Help others understand what this link is for</small>
+                    </label>
+                </form>
+                <footer>
+                    <button type="button" id="modal-cancel" class="secondary">Cancel</button>
+                    <button type="submit" id="modal-submit" form="link-form">Save Changes</button>
+                </footer>
+            </article>
+        </dialog>
+
+        <!-- Delete Confirmation Modal -->
+        <dialog id="delete-modal">
+            <article>
+                <header>
+                    <h3>Delete Link</h3>
+                </header>
+                <p>Are you sure you want to delete the link "<strong id="delete-link-name"></strong>"?</p>
+                <p><small>This action cannot be undone.</small></p>
+                <footer>
+                    <button type="button" id="delete-cancel" class="secondary">Cancel</button>
+                    <button type="button" id="delete-confirm">Delete</button>
+                </footer>
+            </article>
+        </dialog>
+
+        <!-- Preview Modal -->
+        <dialog id="preview-modal">
+            <article>
+                <header>
+                    <h3>Preview Changes</h3>
+                    <button id="preview-close" class="close" aria-label="Close"></button>
+                </header>
+                <div id="preview-content">
+                    <h4>Updated links.js content:</h4>
+                    <pre id="preview-code"></pre>
+                </div>
+                <footer>
+                    <button type="button" id="preview-cancel" class="secondary">Cancel</button>
+                    <button type="button" id="preview-submit">Submit to GitHub</button>
+                </footer>
+            </article>
+        </dialog>
+
+        <footer style="margin-top: 3rem; text-align: center; color: var(--muted-color);">
+            <p>
+                <a href="https://github.com/Sydney-Informatics-Hub/links" target="_blank">📂 View Repository</a> | 
+                <a href="index.html">👁️ View Mode</a>
+            </p>
+        </footer>
+    </main>
+
+    <script src="edit.js"></script>
+</body>
+</html>

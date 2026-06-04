@@ -210,10 +210,19 @@ function setupSearch() {
 function renderLinks() {
     // Store all links for searching
     allLinks = Object.entries(REDIRECTS).sort(([a], [b]) => a.localeCompare(b));
-    
-    // Initial render of all links
-    filterLinks('');
-    
+
+    // Pre-fill search from URL param, e.g. ?bio or ?q=bio
+    const params = new URLSearchParams(window.location.search);
+    const prefill = params.get('q') || [...params.keys()][0] || '';
+    if (prefill) {
+        const searchInput = document.getElementById('search-input');
+        searchInput.value = prefill;
+        currentSearchTerm = prefill;
+    }
+
+    // Initial render (filtered if prefill set)
+    filterLinks(currentSearchTerm);
+
     // Setup search functionality
     setupSearch();
 }

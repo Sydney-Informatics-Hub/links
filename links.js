@@ -9,12 +9,8 @@ const REDIRECTS = {
     description: 'LDaCA Wordflow Workshop Landing Page'
   },
   'ldaca': {
-    url: 'https://github.com/Australian-Text-Analytics-Platform/LDaCa_Text_Analytics_Tools/tree/main#latest',
-    description: 'LDaCA Tools Github - Wordflow latest Releases'
-  },
-  'wordflow-workshop': {
-    url: 'https://milysun.github.io/wordflow-workshop/',
-    description: 'LDaCA Wordflow Workshop Landing Page - temporary - delete after Jun/2026'
+    url: 'https://australian-text-analytics-platform.github.io/LDaCa_Text_Analytics_Tools/',
+    description: 'LDaCA Wordflow Landing Page'
   },
   'aigis': {
     url: 'https://github.com/Sydney-Informatics-Hub/aigis/blob/main/README.md',

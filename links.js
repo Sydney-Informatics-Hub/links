@@ -60,17 +60,21 @@ const REDIRECTS = {
     url: 'https://sydneyuni.atlassian.net/wiki/x/AYBd1Q',
     description: 'SIH GPU cluster information and specifications'
   },
+  'gpu/docs': {
+    url: 'https://sydneyuni.atlassian.net/wiki/x/AYBd1Q',
+    description: 'SIH GPU cluster information and specifications'
+  },
   'gpu-onboarding': {
-    url: 'https://sydney.au1.qualtrics.com/jfe/form/SV_5mXyhFZsPIwZDBs?SupportType=GPU',
-    description: 'SIH GPU cluster onboarding form in qualtrics'
+    url: 'https://dashr.sydney.edu.au',
+    description: 'SIH GPU cluster onboarding in DashR'
+  },
+  'gpu/onboarding': {
+    url: 'https://dashr.sydney.edu.au',
+    description: 'SIH GPU cluster onboarding in DashR'
   },
   'gpu-eoi': {
     url: 'https://forms.office.com/r/kmn4P1WNjq',
     description: 'GPU access expression of interest form'
-  },
-  'gpu-hack': {
-    url: 'https://github.sydney.edu.au/informatics/DGX-hackathon-central/issues',
-    description: 'GPU Hackathon board (Friday 22/8/2025)'
   },
   'hacky-hour-zoom': {
     url: 'https://uni-sydney.zoom.us/my/sih.hackyhour',

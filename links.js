@@ -72,10 +72,6 @@ const REDIRECTS = {
     url: 'https://dashr.sydney.edu.au',
     description: 'SIH GPU cluster onboarding in DashR'
   },
-  'gpu-eoi': {
-    url: 'https://forms.office.com/r/kmn4P1WNjq',
-    description: 'GPU access expression of interest form'
-  },
   'hacky-hour-zoom': {
     url: 'https://uni-sydney.zoom.us/my/sih.hackyhour',
     description: 'Zoom link for our monthly SIH Hacky Hour, on the 3rd Wednesday of every month at 2pm.'

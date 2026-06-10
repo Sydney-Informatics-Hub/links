@@ -6,10 +6,11 @@ A minimalist URL shortener and link directory for Sydney Informatics Hub. Shortl
 
 ## Using shortlinks
 
-Navigate directly to a shortlink to be redirected:
+Navigate directly to a shortlink to be redirected e.g.:
 
 - [sih.tools/gpu](https://sih.tools/gpu) — GPU cluster information
 - [sih.tools/bio](https://sih.tools/bio) — Bioinformatics resources
+- [sih.tools/stats](https://sih.tools/stats) - SIH Statistics Resources
 - [sih.tools/jira](https://sih.tools/jira) — SIH JIRA board
 - [sih.tools/sharepoint](https://sih.tools/sharepoint) — SIH Sharepoint documents
 

@@ -25,7 +25,7 @@ const REDIRECTS = {
     description: 'SIH bioinformatics training'
   },
   'chat': {
-    url: 'http://10.122.246.109:3000',
+    url: 'https://rds-core-sih4hpc-rw-openwebui.gpu.sydney.edu.au',
     description: 'Internal OpenWebUI chat server  (needs VPN to access)'
   },
   'client-dashboard': {

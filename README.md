@@ -60,3 +60,7 @@ Shortlinks can be hierarchical — slashes in the key create nested URLs:
 ```
 
 This gives you `sih.tools/gpu`, `sih.tools/gpu/docs`, `sih.tools/gpu/onboarding`, etc. The hierarchy is just a naming convention in the key — each entry is still an independent redirect.
+
+## Want to use this somewhere else?
+
+Fork a copy of [Jinx](https://jinx.fyi)

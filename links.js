@@ -56,25 +56,21 @@ const REDIRECTS = {
     url: 'https://github.sydney.edu.au/informatics',
     description: 'Internal SIH GitHub organization'
   },
-  'gpu': {
-    url: 'https://sydneyuni.atlassian.net/wiki/x/AYBd1Q',
-    description: 'SIH GPU cluster information and specifications'
-  },
   'gpu/docs': {
     url: 'https://sydneyuni.atlassian.net/wiki/x/AYBd1Q',
-    description: 'SIH GPU cluster information and specifications'
-  },
-  'gpu-onboarding': {
-    url: 'https://dashr.sydney.edu.au',
-    description: 'SIH GPU cluster onboarding in DashR'
+    description: 'Sydney GPU cluster documentation, information and specifications'
   },
   'gpu/onboarding': {
     url: 'https://dashr.sydney.edu.au',
-    description: 'SIH GPU cluster onboarding in DashR'
+    description: 'Sydney GPU cluster onboarding for your research project in DashR portal'
   },
   'gpu/login': {
     url: 'https://gpu.sydney.edu.au',
-    description: 'SIH GPU cluster user interface (RunAI). Requires on-campus network access or VPN.'
+    description: 'Sydney GPU cluster user interface (RunAI). Requires on-campus network access or VPN.'
+  },
+  'gpu/guide': {
+    url: 'https://sydney-informatics-hub.github.io/gpu-cluster-onboarding-guide/',
+    description: 'Sydney GPU cluster onboarding guide and tutorials'
   },
   'hacky-hour-zoom': {
     url: 'https://uni-sydney.zoom.us/my/sih.hackyhour',

@@ -97,7 +97,7 @@ const REDIRECTS = {
     description: 'Sydney national HPC scheme administration portal'
   },
   'ipa-guide': {
-    url: 'https://github.com/Sydney-Informatics-Hub/IPA-user-guide/blob/main/20260511%20IPA%20user%20guide.pdf',
+    url: 'https://github.com/Sydney-Informatics-Hub/IPA-user-guide/blob/main/20260616%20IPA%20user%20guide.pdf',
     description: 'Ingenuity Pathway Analysis User Guide'
   },  
   'jira': {

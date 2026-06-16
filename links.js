@@ -96,6 +96,10 @@ const REDIRECTS = {
     url: 'https://nci.sydney.edu.au/',
     description: 'Sydney national HPC scheme administration portal'
   },
+    'hpc-scheme-policies': {
+    url: 'https://sydneyuni.atlassian.net/wiki/spaces/RC/pages/4605805979/Policies',
+    description: 'Sydney HPC Scheme policies'
+  },
   'ipa-guide': {
     url: 'https://github.com/Sydney-Informatics-Hub/IPA-user-guide/blob/main/20260616%20IPA%20user%20guide.pdf',
     description: 'Ingenuity Pathway Analysis User Guide'

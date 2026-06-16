@@ -96,7 +96,7 @@ const REDIRECTS = {
     url: 'https://nci.sydney.edu.au/',
     description: 'Sydney national HPC scheme administration portal'
   },
-    'hpc-scheme-policies': {
+  'hpc-scheme-policies': {
     url: 'https://sydneyuni.atlassian.net/wiki/spaces/RC/pages/4605805979/Policies',
     description: 'Sydney HPC Scheme policies'
   },
@@ -131,6 +131,10 @@ const REDIRECTS = {
   'navigator': {
     url: 'https://app.cogniti.ai/agents/6539de2436d0b628561cad9c/chat?k=tz0LR06KDQMgOaq507-pvaSrCzGwfCHjo829dJLTM4s',
     description: 'University of Sydney Core Research Facility Navigator Chatbot'
+  },
+  'nci-access': {
+    url: 'https://sydneyuni.atlassian.net/wiki/spaces/RC/pages/3722182703/NCI+Gadi+HPC',
+    description: 'NCI access via Sydney HPC Scheme'
   },
   'nci-su-calculator': {
     url: 'https://sydney-informatics-hub.github.io/nci-su-calculator/',

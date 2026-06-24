@@ -150,7 +150,7 @@ const REDIRECTS = {
   },
   'pawsey-usyd-docs': {
     url: 'https://sydneyuni.atlassian.net/wiki/spaces/RC/pages/3774775342/Pawsey+Setonix+HPC',
-    description: 'Pawsey Setonix HPC guide for USyd'
+    description: 'Pawsey Setonix HPC documentation for USyd'
   },
   'ref-check': {
     url: 'https://github.com/Sydney-Informatics-Hub/RefCheckAI',

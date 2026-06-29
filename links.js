@@ -24,6 +24,10 @@ const REDIRECTS = {
     url: 'https://sydney-informatics-hub.github.io/bioinformatics-training/',
     description: 'SIH bioinformatics training'
   },
+  'blockparty': {
+    url: 'https://sydney-informatics-hub.github.io/blockparty/',
+    description: 'Unicode drawing tool'
+  },
   'chat': {
     url: 'https://rds-core-sih4hpc-rw-openwebui.gpu.sydney.edu.au',
     description: 'Internal OpenWebUI chat server  (needs VPN to access)'

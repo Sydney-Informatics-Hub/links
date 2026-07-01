@@ -12,6 +12,18 @@ const REDIRECTS = {
     url: 'https://australian-text-analytics-platform.github.io/LDaCa_Text_Analytics_Tools/',
     description: 'LDaCA Wordflow Landing Page'
   },
+  'appn': {
+    url: 'https://www.plantphenomics.org.au/our-nodes/university-of-sydney',
+    description: 'University of Sydney node of the Australian Plant Phenomics Facility - Sydney Informatics Hub'
+  },
+  'biocommons-access': {
+    url: 'https://www.biocommons.org.au/access',
+    description: 'Biocommons Access service developed by the BioCloud team at Sydney Informatics Hub'
+  },
+  'structural-biology': {
+    url: 'https://staging.sbp.test.biocommons.org.au/binder-design',
+    description: 'Structural Biology workflow service developed by Sydney Informatics Hub in partnership with the Australian Biocommons and UNSW'
+  },
   'aigis': {
     url: 'https://github.com/Sydney-Informatics-Hub/aigis/blob/main/README.md',
     description: 'Geospatial data with Gen-AI - Sydney Informatics Hub'
@@ -45,8 +57,8 @@ const REDIRECTS = {
     description: 'Curated Collections platform expression of interest form'
   },
   'cc': {
-    url: 'http://160.250.232.94:8000',
-    description: 'Curated Collections platform development deployment of Omeka S'
+    url: 'https://ardc.edu.au/project/curated-collections-for-enduring-hass-indigenous-data/',
+    description: 'Curated Collections, a national digital humanities collection building platform based upon Omeka S, developed by Sydney Informatics Hub in partnership with the ARDC, Systemik and USyd FASS.'
   },  
   'forwards-plan': {
     url: 'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository/Team Folders/Informatics/Group Leads/Team management/TeamForwardPlanning2025onwards.xlsx?web=1',

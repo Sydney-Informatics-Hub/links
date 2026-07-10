@@ -240,6 +240,10 @@ const REDIRECTS = {
     url: 'https://www.youtube.com/@sydneyinformaticshub',
     description: 'Sydney Informatics Hub - YouTube'
   }
+  'BioShell-Documentation': {
+    url: 'https://sydney-informatics-hub.github.io/BioShell-User-Guide/',
+    description: 'Documentation to request access and use BioShell - A command-line environment built for life sciences research'
+  }
 };
 
 // Template:

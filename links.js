@@ -20,6 +20,10 @@ const REDIRECTS = {
     url: 'https://www.biocommons.org.au/access',
     description: 'Biocommons Access service developed by the BioCloud team at Sydney Informatics Hub'
   },
+  'bioshell-guide': {
+    url: 'https://sydney-informatics-hub.github.io/BioShell-User-Guide/',
+    description: 'Documentation to request access and use BioShell - A command-line environment built for life sciences research'
+  },
   'structural-biology': {
     url: 'https://staging.sbp.test.biocommons.org.au/binder-design',
     description: 'Structural Biology workflow service developed by Sydney Informatics Hub in partnership with the Australian Biocommons and UNSW'
@@ -240,10 +244,6 @@ const REDIRECTS = {
     url: 'https://www.youtube.com/@sydneyinformaticshub',
     description: 'Sydney Informatics Hub - YouTube'
   },
-  'BioShell-Documentation': {
-    url: 'https://sydney-informatics-hub.github.io/BioShell-User-Guide/',
-    description: 'Documentation to request access and use BioShell - A command-line environment built for life sciences research'
-  }
 };
 
 // Template:

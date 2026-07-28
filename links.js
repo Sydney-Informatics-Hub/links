@@ -25,7 +25,7 @@ const REDIRECTS = {
     description: 'Documentation to request access and use BioShell - A command-line environment built for life sciences research'
   },
   'structural-biology-platform': {
-    url: 'https://staging.sbp.test.biocommons.org.au/binder-design',
+    url: 'https://www.biocommons.org.au/structural-biology-platform',
     description: 'Structural Biology workflow service developed by Sydney Informatics Hub in partnership with the Australian Biocommons and UNSW'
   },
   'aigis': {

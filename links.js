@@ -56,10 +56,6 @@ const REDIRECTS = {
     url: 'https://sydney.au1.qualtrics.com/jfe/form/SV_6lFIfPlKRKplg3A',
     description: 'USyd Collaborative Equipment Grants and NHMRC Equipment Grants Scheme'
   },
-  'collections-eoi': {
-    url: 'https://forms.cloud.microsoft/r/hAs6drJ3xQ',
-    description: 'Curated Collections platform expression of interest form'
-  },
   'cc': {
     url: 'https://ardc.edu.au/project/curated-collections-for-enduring-hass-indigenous-data/',
     description: 'Curated Collections, a national digital humanities collection building platform based upon Omeka S, developed by Sydney Informatics Hub in partnership with the ARDC, Systemik and USyd FASS.'

@@ -78,19 +78,27 @@ const REDIRECTS = {
   },
   'gpu/docs': {
     url: 'https://sydneyuni.atlassian.net/wiki/x/AYBd1Q',
-    description: 'Sydney GPU cluster documentation, information and specifications'
+    description: 'Apollo GPU cluster documentation, information and specifications'
+  },
+  'gpu/pricing': {
+    url: 'https://sydneyuni.atlassian.net/wiki/x/DYBgGgE',
+    description: 'Apollo GPU cluster pricing, rates and billing'
+  },
+  'gpu/policies': {
+    url: 'https://sydneyuni.atlassian.net/wiki/x/mwWHEgE',
+    description: 'Apollo GPU cluster access policies'
   },
   'gpu/onboarding': {
     url: 'https://dashr.sydney.edu.au',
-    description: 'Sydney GPU cluster onboarding for your research project in DashR portal'
+    description: 'Apollo GPU cluster onboarding for your research project in DashR portal'
   },
   'gpu/login': {
     url: 'https://gpu.sydney.edu.au',
-    description: 'Sydney GPU cluster user interface (RunAI). Requires on-campus network access or VPN.'
+    description: 'Apollo GPU cluster user interface (RunAI). Requires on-campus network access or VPN.'
   },
   'gpu/guide': {
     url: 'https://sydney-informatics-hub.github.io/gpu-cluster-onboarding-guide/',
-    description: 'Sydney GPU cluster onboarding guide and tutorials'
+    description: 'Apollo GPU cluster onboarding guide and tutorials'
   },
   'hacky-hour-zoom': {
     url: 'https://uni-sydney.zoom.us/my/sih.hackyhour',

@@ -5,12 +5,12 @@ const REDIRECTS = {
     description: 'Online Screening Tool for the Cambridge Behavioural Inventory-Revised (CBI-R)'
   },
   'wordflow': {
-    url: 'https://milysun.github.io/wordflow-workshop/',
-    description: 'Wordflow Workshops Landing Page'
-  },
-  'ldaca': {
     url: 'https://australian-text-analytics-platform.github.io/LDaCa_Text_Analytics_Tools/',
     description: 'LDaCA Wordflow Landing Page'
+  },
+  'ldaca': {
+    url: 'https://milysun.github.io/wordflow-workshop/',
+    description: 'Wordflow Workshops Landing Page'
   },
   'appn': {
     url: 'https://www.plantphenomics.org.au/our-nodes/university-of-sydney',

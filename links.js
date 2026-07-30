@@ -4,10 +4,6 @@ const REDIRECTS = {
     url: 'https://sydney-informatics-hub.github.io/cbir-screening-tool/',
     description: 'Online Screening Tool for the Cambridge Behavioural Inventory-Revised (CBI-R)'
   },
-  'api': {
-    url: 'https://sih-dev.notion.site/',
-    description: 'LDaCA Wordflow temporary page for CAITG AI Winter School'
-  },
   'wordflow': {
     url: 'https://australian-text-analytics-platform.github.io/LDaCa_Text_Analytics_Tools/',
     description: 'LDaCA Wordflow Landing Page'

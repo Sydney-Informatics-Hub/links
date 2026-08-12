@@ -104,9 +104,13 @@ const REDIRECTS = {
     url: 'https://huggingface.co/SIH',
     description: 'SIH Hugging Face organization page'
   },
-  'hpc': {
+  'hpc/docs': {
     url: 'https://sydneyuni.atlassian.net/wiki/spaces/RC/pages/3448733944/Sydney+HPC+Scheme',
     description: 'Sydney HPC Scheme Confluence page'
+  },
+  'hpc/costs': {
+    url: 'https://intranet.sydney.edu.au/research-support/managing-research/research-computing.html#cost',
+    description: 'University of Sydney High Performance Computing Cost Tables'
   },
   'hpc-chat': {
     url: 'https://app.cogniti.ai/agents/68099883ab29fb8c2af4154d/chat?k=e8f0C6vSYYuEh40obfkH3IRxlwGDrM6T1bCYXyknfm4',

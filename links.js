@@ -112,19 +112,19 @@ const REDIRECTS = {
     url: 'https://intranet.sydney.edu.au/research-support/managing-research/research-computing.html#cost',
     description: 'University of Sydney High Performance Computing Cost Tables'
   },
-  'hpc-chat': {
+  'hpc/chat': {
     url: 'https://app.cogniti.ai/agents/68099883ab29fb8c2af4154d/chat?k=e8f0C6vSYYuEh40obfkH3IRxlwGDrM6T1bCYXyknfm4',
     description: 'University of Sydney High Performance Computing AI Chat Assistant'
   },
-  'hpc-dropin': {
+  'hpc/dropin': {
     url: 'https://uni-sydney.zoom.us/j/85100208525?from=addon',
     description: 'Zoom link for our monthly HPC drop-in sessions, on the 1st Thursday of every month at 12pm.'
   },
-  'hpc-scheme': {
+  'hpc/nci': {
     url: 'https://nci.sydney.edu.au/',
     description: 'Sydney national HPC scheme administration portal'
   },
-  'hpc-scheme-policies': {
+  'hpc/policies': {
     url: 'https://sydneyuni.atlassian.net/wiki/spaces/RC/pages/4605805979/Policies',
     description: 'Sydney HPC Scheme policies'
   },
@@ -160,7 +160,7 @@ const REDIRECTS = {
     url: 'https://app.cogniti.ai/agents/6539de2436d0b628561cad9c/chat?k=tz0LR06KDQMgOaq507-pvaSrCzGwfCHjo829dJLTM4s',
     description: 'University of Sydney Core Research Facility Navigator Chatbot'
   },
-  'nci-access': {
+  'hpc/nci-access': {
     url: 'https://sydneyuni.atlassian.net/wiki/spaces/RC/pages/3722182703/NCI+Gadi+HPC',
     description: 'NCI access via Sydney HPC Scheme'
   },
@@ -172,11 +172,11 @@ const REDIRECTS = {
     url: 'https://sydney.au1.qualtrics.com/jfe/form/SV_5mXyhFZsPIwZDBs?SupportType=Pawsey',
     description: 'Pawsey Setonix HPC onboarding form'
   },
-  'pawsey-usyd-guide': {
+  'hpc/pawsey-usyd-guide': {
     url: 'https://sydney-informatics-hub.github.io/usyd-pawsey-onboarding-guide/',
     description: 'Pawsey Setonix HPC guide for USyd'
   },
-  'pawsey-usyd-docs': {
+  'hpc/pawsey-usyd-docs': {
     url: 'https://sydneyuni.atlassian.net/wiki/spaces/RC/pages/3774775342/Pawsey+Setonix+HPC',
     description: 'Pawsey Setonix HPC documentation for USyd'
   },

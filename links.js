@@ -1,5 +1,9 @@
 // Redirect links
 const REDIRECTS = {
+  'alphafold3': {
+    url: 'https://sydney-informatics-hub.github.io/gpu-cluster-onboarding-guide/notebooks/alphafold3_guide.html',
+    description: 'Guide to run AlphaFold3 on the Apollo GPU cluster'
+  },
   'CBI-R': {
     url: 'https://sydney-informatics-hub.github.io/cbir-screening-tool/',
     description: 'Online Screening Tool for the Cambridge Behavioural Inventory-Revised (CBI-R)'

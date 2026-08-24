@@ -145,7 +145,7 @@ const REDIRECTS = {
     description: 'SIH JIRA Project management and issue tracking'
   },
   'jira-data-entry': {
-    url: 'https://sydney.au1.qualtrics.com/jfe/form/SV_9LxgSqP0TjNwOXA'
+    url: 'https://sydney.au1.qualtrics.com/jfe/form/SV_9LxgSqP0TjNwOXA',
     description: 'Internal-only form to add client email request data to JIRA'}
   },
   'label': {

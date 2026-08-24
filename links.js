@@ -76,6 +76,10 @@ const REDIRECTS = {
     url: 'https://github.sydney.edu.au/informatics',
     description: 'Internal SIH GitHub organization'
   },
+  'globus/docs': {
+    url: 'https://sydneyuni.atlassian.net/wiki/spaces/RC/pages/4392878084/Globus',
+    description: 'Globus technical documentation on confluence'
+  },
   'gpu/docs': {
     url: 'https://sydneyuni.atlassian.net/wiki/x/AYBd1Q',
     description: 'Apollo GPU cluster documentation, information and specifications'

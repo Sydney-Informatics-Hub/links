@@ -36,6 +36,10 @@ const REDIRECTS = {
     url: 'https://github.com/Sydney-Informatics-Hub/aigis/blob/main/README.md',
     description: 'Geospatial data with Gen-AI - Sydney Informatics Hub'
   },
+  'apollo-launch': {
+    url: 'https://sydney-informatics-hub.github.io/apollo-launch/',
+    description: 'Program for the official launch event of the Apollo GPU cluster on 3rd September 2026'
+  },
   'bio': {
     url: 'https://github.com/Sydney-Informatics-Hub/Bioinformatics',
     description: 'SIH bioinformatics resources and tools'

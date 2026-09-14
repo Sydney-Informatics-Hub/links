@@ -49,7 +49,7 @@ const REDIRECTS = {
     description: 'SIH bioinformatics training'
   },
   'bio101-workshop': {
-    url: 'https://sydney-informatics-hub.github.io/omics-study-designs-and-data-interpretation/',
+    url: 'https://sydney-informatics-hub.github.io/bio101-workshop/',
     description: 'Bioinformatics 101 workshop materials'
   },
   'blockparty': {

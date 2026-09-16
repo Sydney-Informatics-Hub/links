@@ -44,6 +44,10 @@ const REDIRECTS = {
     url: 'https://github.com/Sydney-Informatics-Hub/Bioinformatics',
     description: 'SIH bioinformatics resources and tools'
   },
+  'bio-omicscalculator': {
+    url: 'https://sydney-informatics-hub.github.io/omics-calculator/metadata-calculator.html',
+    description: 'Bioinformatics metadata analysis tool'
+  },
   'bio-training': {
     url: 'https://sydney-informatics-hub.github.io/bioinformatics-training/',
     description: 'SIH bioinformatics training'

@@ -56,6 +56,10 @@ const REDIRECTS = {
     url: 'https://sydney-informatics-hub.github.io/bio101-workshop/',
     description: 'Bioinformatics 101 workshop materials'
   },
+  'bio101-survey-2026': {
+    url: 'https://redcap.sydney.edu.au/surveys/?s=FJ33MYNCRR&training=106&training_date=2026-09-17',
+    description: 'Bioinformatics 101 workshop survey'
+  },
   'blockparty': {
     url: 'https://sydney-informatics-hub.github.io/blockparty/',
     description: 'Unicode drawing tool'

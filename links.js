@@ -1,20 +1,16 @@
 // Redirect links
 const REDIRECTS = {
+  'aigis': {
+    url: 'https://github.com/Sydney-Informatics-Hub/aigis/blob/main/README.md',
+    description: 'Geospatial data with Gen-AI - Sydney Informatics Hub'
+  },
   'alphafold3': {
     url: 'https://sydney-informatics-hub.github.io/gpu-cluster-onboarding-guide/notebooks/alphafold3_guide.html',
     description: 'Guide to run AlphaFold3 on the Apollo GPU cluster'
   },
-  'CBI-R': {
-    url: 'https://sydney-informatics-hub.github.io/cbir-screening-tool/',
-    description: 'Online Screening Tool for the Cambridge Behavioural Inventory-Revised (CBI-R)'
-  },
-  'wordflow': {
-    url: 'https://australian-text-analytics-platform.github.io/LDaCa_Text_Analytics_Tools/',
-    description: 'LDaCA Wordflow Landing Page'
-  },
-  'ldaca': {
-    url: 'https://milysun.github.io/wordflow-workshop/',
-    description: 'Wordflow Workshops Landing Page'
+  'apollo-launch': {
+    url: 'https://sydney-informatics-hub.github.io/apollo-launch/',
+    description: 'Program for the official launch event of the Apollo GPU cluster on 3rd September 2026'
   },
   'appn': {
     url: 'https://www.plantphenomics.org.au/our-nodes/university-of-sydney',
@@ -27,18 +23,6 @@ const REDIRECTS = {
   'bioshell-guide': {
     url: 'https://sydney-informatics-hub.github.io/BioShell-User-Guide/',
     description: 'Documentation to request access and use BioShell - A command-line environment built for life sciences research'
-  },
-  'structural-biology-platform': {
-    url: 'https://www.biocommons.org.au/structural-biology-platform',
-    description: 'Structural Biology workflow service developed by Sydney Informatics Hub in partnership with the Australian Biocommons and UNSW'
-  },
-  'aigis': {
-    url: 'https://github.com/Sydney-Informatics-Hub/aigis/blob/main/README.md',
-    description: 'Geospatial data with Gen-AI - Sydney Informatics Hub'
-  },
-  'apollo-launch': {
-    url: 'https://sydney-informatics-hub.github.io/apollo-launch/',
-    description: 'Program for the official launch event of the Apollo GPU cluster on 3rd September 2026'
   },
   'bio': {
     url: 'https://github.com/Sydney-Informatics-Hub/Bioinformatics',
@@ -67,6 +51,10 @@ const REDIRECTS = {
   'chat': {
     url: 'https://rds-core-sih4hpc-rw-openwebui.gpu.sydney.edu.au',
     description: 'Internal OpenWebUI chat server  (needs VPN to access)'
+  },
+  'CBI-R': {
+    url: 'https://sydney-informatics-hub.github.io/cbir-screening-tool/',
+    description: 'Online Screening Tool for the Cambridge Behavioural Inventory-Revised (CBI-R)'
   },
   'client-dashboard': {
     url: 'https://app.powerbi.com/groups/6d62871b-a2c5-4c79-bb85-75eb03e90a2d/reports/700a9b42-6a01-44ce-ac7f-a7e0eeeffc35?ctid=82b3e37e-8171-485d-b10b-38dae7ed14a8',
@@ -148,6 +136,10 @@ const REDIRECTS = {
     url: 'https://nci.sydney.edu.au/',
     description: 'Sydney national HPC scheme administration portal'
   },
+  'hpc/nci-variable-scheme': {
+    url: 'https://sydneyuni.atlassian.net/wiki/spaces/RC/pages/3722018879/Power+Users#Purchased-KSU',
+    description: 'NCI variable scheme instructions for purchasing additional KSU'
+  },
   'hpc/policies': {
     url: 'https://sydneyuni.atlassian.net/wiki/spaces/RC/pages/4605805979/Policies',
     description: 'Sydney HPC Scheme policies'
@@ -167,6 +159,10 @@ const REDIRECTS = {
   'label': {
     url: 'http://10.122.246.109:8080/',
     description: 'Labelstudio deployment (needs VPN to access)'
+  },
+  'ldaca': {
+    url: 'https://milysun.github.io/wordflow-workshop/',
+    description: 'Wordflow Workshops Landing Page'
   },
   'leave': {
     url: 'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared%20Documents/1%20SIH%20Central%20Document%20Repository/Admin/Leave%20and%20Travel%20Schedule/SIH_Annual_Leave_and_Business_Travel_Schedule_2026.xlsx?d=wdb8cbe2e7e614bb9889bc5a8136722e1&csf=1&web=1&e=aSUUBA',
@@ -248,6 +244,10 @@ const REDIRECTS = {
     url: 'https://sydney-informatics-hub.github.io/stats-resources/',
     description: 'SIH Statistics and data analysis resources'
   },
+  'structural-biology-platform': {
+    url: 'https://www.biocommons.org.au/structural-biology-platform',
+    description: 'Structural Biology workflow service developed by Sydney Informatics Hub in partnership with the Australian Biocommons and UNSW'
+  },
   'team-guides': {
     url: 'https://unisyd.sharepoint.com/:f:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository/Team Folders/Informatics/Team Guides',
     description: 'SIH Informatics Team Guides'
@@ -275,6 +275,10 @@ const REDIRECTS = {
   'wimr-consult': {
     url: 'https://outlook.office.com/book/StatisticalConsultwithAlexandraGreenandAmarinderThind@unisyd.onmicrosoft.com/?ismsaljsauthenabled',
     description: 'WIMR biostatistics consult booking form'
+  },
+  'wordflow': {
+    url: 'https://australian-text-analytics-platform.github.io/LDaCa_Text_Analytics_Tools/',
+    description: 'LDaCA Wordflow Landing Page'
   },
   'youtube': {
     url: 'https://www.youtube.com/@sydneyinformaticshub',

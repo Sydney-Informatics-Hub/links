@@ -1,0 +1,91 @@
+name: Check links
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths: [links.js]
+  schedule:
+    # Weekly check of every link for ones that have gone stale (Monday, 9am aest/aedt)
+    - cron: '0 23 * * 0'
+  workflow_dispatch:
+
+jobs:
+  lint:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # push formatting fixes
+      pages: write # rebuild the site after fixing main
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # PR branch so fixes can be pushed back to it
+          ref: ${{ github.head_ref || github.ref }}
+          # Optional PAT so fix commits re-trigger checks; falls back to the default token
+          token: ${{ secrets.LINKS_BOT_TOKEN || github.token }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # The most common break from browser-based edits: a missing or extra comma
+      # between entries. Formatters can't fix this, so janky insert commas where an 
+      # entry/field ends and the next line starts a new key, and collapse doubled commas.
+      - name: Repair commas
+        run: |
+          if ! node --check links.js 2>/dev/null; then
+            perl -0pi -e "s/([}'\"])([ \t]*)(\r?\n\s*(?:['\"][^'\"\n]+['\"]|url|description)\s*:)/\$1,\$2\$3/g; s/,(\s*\n\s*),/,\$1/g" links.js
+          fi
+
+      - name: Format
+        run: npx --yes prettier@3 --write links.js
+
+      - name: Lint
+        run: npx --yes eslint@10 links.js
+
+      - name: Commit fixes
+        id: commit
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+        run: |
+          if git diff --quiet links.js; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Auto-fix links.js formatting" links.js
+          git push
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Rebuild site
+        if: steps.commit.outputs.pushed == 'true' && github.event_name == 'push'
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Fail if fork PR needs fixes
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+        run: git diff --exit-code links.js
+
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # On PRs/pushes only check lines that were added, so an unrelated dead
+      # link doesn't block someone adding theirs. Scheduled runs check everything.
+      - name: Pick what to check
+        id: target
+        run: |
+          case "${{ github.event_name }}" in
+            pull_request) base="origin/${{ github.base_ref }}" ;;
+            push)         base="${{ github.event.before }}" ;;
+            *)            echo "input=links.js" >> "$GITHUB_OUTPUT"; exit 0 ;;
+          esac
+          git diff "$base" -- links.js | grep '^+' | grep -v '^+++' > added-lines.txt || true
+          echo "input=added-lines.txt" >> "$GITHUB_OUTPUT"
+
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: --config lychee.toml --no-progress ${{ steps.target.outputs.input }}
+          fail: true

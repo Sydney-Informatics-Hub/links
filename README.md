@@ -51,6 +51,8 @@ Edit [links.js](links.js) and add an entry to the `REDIRECTS` object:
 The shortlink will be live at `sih.tools/shortcut` as soon as the change is merged.
 
 > **Note:** Every entry in the object must be followed by a comma, including the one before your new entry. Missing commas will break all redirects.
+>
+> A GitHub Action checks every change to `links.js`: it adds missing commas, fixes formatting (committing the fix back to your branch), flags duplicate shortlinks, and checks that new URLs aren't broken. If a check fails, see the **Actions** tab or the PR's checks for the line to fix.
 
 Shortlinks can be hierarchical — slashes in the key create nested URLs:
 

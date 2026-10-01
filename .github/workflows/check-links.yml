@@ -89,3 +89,5 @@ jobs:
         with:
           args: --config lychee.toml --no-progress ${{ steps.target.outputs.input }}
           fail: true
+          # PRs that don't add a URL (e.g. a description tweak) have nothing to check
+          failIfEmpty: false

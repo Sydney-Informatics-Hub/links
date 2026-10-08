@@ -108,6 +108,10 @@ const REDIRECTS = {
     url: 'https://sydney-informatics-hub.github.io/gpu-cluster-onboarding-guide/',
     description: 'Apollo GPU cluster onboarding guide and tutorials',
   },
+  'gpu/fusion': {
+    url: 'https://sydneyuni.atlassian.net/wiki/x/qRKlJgE',
+    description: 'Fusion GPU cluster documentation',
+  },
   'hacky-hour-zoom': {
     url: 'https://uni-sydney.zoom.us/my/sih.hackyhour',
     description: 'Zoom link for our monthly SIH Hacky Hour, on the 3rd Wednesday of every month at 2pm.',

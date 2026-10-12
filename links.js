@@ -244,6 +244,10 @@ const REDIRECTS = {
     url: 'https://github.sydney.edu.au/informatics/trainingmaterials/tree/master/CrossSkilling',
     description: 'SIH Cross-skilling calendar + materials',
   },
+  'sih-web-archive': {
+    url: 'https://sydney-informatics-hub.github.io/archived-sih-website/',
+    description: 'Sydney Informatics Hub Old Website Archive (2017-2020)',
+  },
   'src': {
     url: 'https://intranet.sydney.edu.au/research-support/managing-research/facilities-and-tools/sydney-research-cloud.html',
     description: 'Sydney Research Cloud information on the Intranet',
@@ -279,6 +283,10 @@ const REDIRECTS = {
   'vm-register': {
     url: 'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository/Team Folders/Informatics/VM and asset management/VM register.xlsx?web=1',
     description: 'SIH team VM register',
+  },
+  'website': {
+    url: 'https://informatics.sydney.edu.au/',
+    description: 'Sydney Informatics Hub (SIH) Official Website',
   },
   'wimr-consult': {
     url: 'https://outlook.office.com/book/StatisticalConsultwithAlexandraGreenandAmarinderThind@unisyd.onmicrosoft.com/?ismsaljsauthenabled',

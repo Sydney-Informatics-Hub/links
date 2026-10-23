@@ -296,6 +296,14 @@ const REDIRECTS = {
     url: 'https://australian-text-analytics-platform.github.io/LDaCa_Text_Analytics_Tools/',
     description: 'LDaCA Wordflow Landing Page',
   },
+  'text-analysis': {
+    url: 'https://wordflow2026-pilot.gpu.sydney.edu.au/',
+    description: 'Analyse texts with Wordflow on Apollo',
+  },
+  'ocr': {
+    url: 'https://genai-ocr.gpu.sydney.edu.au/',
+    description: 'Generative AI model backed text recognition',
+  },
   'youtube': {
     url: 'https://www.youtube.com/@sydneyinformaticshub',
     description: 'Sydney Informatics Hub - YouTube',

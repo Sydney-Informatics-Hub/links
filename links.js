@@ -296,7 +296,7 @@ const REDIRECTS = {
     url: 'https://australian-text-analytics-platform.github.io/LDaCa_Text_Analytics_Tools/',
     description: 'LDaCA Wordflow Landing Page',
   },
-  'text-analysis': {
+  'hpc-text': {
     url: 'https://wordflow2026-pilot.gpu.sydney.edu.au/',
     description: 'Analyse texts with Wordflow on Apollo',
   },

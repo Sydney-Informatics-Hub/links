@@ -165,7 +165,7 @@ const REDIRECTS = {
     description: 'Labelstudio deployment (needs VPN to access)',
   },
   'ldaca': {
-    url: 'https://milysun.github.io/wordflow-workshop/',
+    url: 'https://milysun.github.io/wordflow-workshop/melbourne/',
     description: 'Wordflow Workshops Landing Page',
   },
   'leave': {

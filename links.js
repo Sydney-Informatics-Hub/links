@@ -196,6 +196,10 @@ const REDIRECTS = {
     url: 'https://sydney-informatics-hub.github.io/nci-su-calculator/',
     description: 'Service unit calculator for NCI Gadi HPC',
   },
+  'hpc/nci-usyd-guide': {
+    url: 'https://sydney-informatics-hub.github.io/usyd-gadi-onboarding-guide/',
+    description: 'NCI Gadi HPC guide for USyd',
+  },
   'news': {
     url: 'https://sydney-informatics-hub.github.io/newsletter/',
     description: 'Sydney Informatics Hub Newsletter Archive',

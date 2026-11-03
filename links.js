@@ -301,7 +301,7 @@ const REDIRECTS = {
     description: 'LDaCA Wordflow Landing Page',
   },
   'hpc-text': {
-    url: 'https://wordflow2026-pilot.gpu.sydney.edu.au/',
+    url: 'https://genai-wordflow.gpu.sydney.edu.au',
     description: 'Analyse texts with Wordflow on Apollo',
   },
   'ocr': {

@@ -68,6 +68,10 @@ const REDIRECTS = {
     url: 'https://ardc.edu.au/project/curated-collections-for-enduring-hass-indigenous-data/',
     description: 'Curated Collections, a national digital humanities collection building platform based upon Omeka S, developed by Sydney Informatics Hub in partnership with the ARDC, Systemik and USyd FASS.',
   },
+  'form': {
+    url: 'https://sydney.au1.qualtrics.com/jfe/form/SV_5mXyhFZsPIwZDBs',
+    description: 'SIH Qualtrics Intake Form',
+  },
   'forwards-plan': {
     url: 'https://unisyd.sharepoint.com/:x:/r/teams/SydneyInformaticsHub2/Shared Documents/1 SIH Central Document Repository/Team Folders/Informatics/Group Leads/Team management/TeamForwardPlanning2025onwards.xlsx?web=1',
     description: 'SIH Informatics Team Forwards Plan',

@@ -256,6 +256,10 @@ const REDIRECTS = {
     url: 'https://intranet.sydney.edu.au/research-support/managing-research/facilities-and-tools/sydney-research-cloud.html',
     description: 'Sydney Research Cloud information on the Intranet',
   },
+  'src-confluence': {
+    url: 'https://sydneyuni.atlassian.net/wiki/spaces/RC/overview?homepageId=173932782',
+    description: 'Research computing confluence page',
+  },
   'stats': {
     url: 'https://sydney-informatics-hub.github.io/stats-resources/',
     description: 'SIH Statistics and data analysis resources',

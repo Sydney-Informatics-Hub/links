@@ -288,6 +288,10 @@ const REDIRECTS = {
     url: 'https://app.powerbi.com/links/ZTQdGqm_Uk',
     description: 'SIH Training Dashboard',
   },
+  'triage': {
+    url: 'https://pages.github.sydney.edu.au/informatics/JIRA_Triage/',
+    description: 'SIH JIRA Triage Report',
+  },
   'upcoming': {
     url: 'https://unisyd.sharepoint.com/:l:/r/teams/SydneyInformaticsHub2/Lists/Upcoming Informatics Team Events?e=cdJqwB',
     description: 'Upcoming Informatics Team Events',

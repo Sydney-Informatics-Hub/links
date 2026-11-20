@@ -20,6 +20,10 @@ const REDIRECTS = {
     url: 'https://www.biocommons.org.au/access',
     description: 'Biocommons Access service developed by the BioCloud team at Sydney Informatics Hub',
   },
+  'bioshell': {
+    url: 'https://www.biocommons.org.au/bioshell',
+    description: 'BioShell - A command-line environment built for life sciences research, with the Australian Biocommons',
+  },
   'bioshell-guide': {
     url: 'https://sydney-informatics-hub.github.io/BioShell-User-Guide/',
     description: 'Documentation to request access and use BioShell - A command-line environment built for life sciences research',
